@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <body style="margin:0;background:#eef4fa;font-family:Arial,sans-serif;color:#0b1a2b;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:32px 16px;background:#eef4fa;">
+      <tr><td align="center">
+        <table role="presentation" width="650" cellpadding="0" cellspacing="0" style="max-width:650px;background:#ffffff;border-radius:22px;overflow:hidden;box-shadow:0 18px 45px rgba(12,35,58,.12);">
+          <tr><td style="padding:28px 34px;background:#061528;color:#ffffff;"><div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#71cfff;font-weight:700;">Portfolio server</div><h1 style="margin:12px 0 0;font-size:26px;">New contact message</h1></td></tr>
+          <tr><td style="padding:32px 34px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+              <tr><td style="padding:10px 0;color:#73879a;width:150px;">Name</td><td style="padding:10px 0;font-weight:700;">{{name}}</td></tr>
+              <tr><td style="padding:10px 0;color:#73879a;">Email</td><td style="padding:10px 0;"><a href="mailto:{{email}}" style="color:#0b6cff;">{{email}}</a></td></tr>
+              <tr><td style="padding:10px 0;color:#73879a;">Phone</td><td style="padding:10px 0;">{{phone}}</td></tr>
+              <tr><td style="padding:10px 0;color:#73879a;">Enquiry type</td><td style="padding:10px 0;">{{enquiryType}}</td></tr>
+              <tr><td style="padding:10px 0;color:#73879a;">Subject</td><td style="padding:10px 0;font-weight:700;">{{subject}}</td></tr>
+              <tr><td style="padding:10px 0;color:#73879a;">Submitted</td><td style="padding:10px 0;">{{submittedAt}}</td></tr>
+            </table>
+            <div style="margin-top:22px;padding:20px;border:1px solid #dbe6ef;border-radius:14px;background:#f7fafc;white-space:pre-line;line-height:1.65;color:#41576b;">{{message}}</div>
+            <p style="margin:24px 0 0;"><a href="mailto:{{email}}?subject=Re:%20{{subject}}" style="display:inline-block;padding:12px 18px;border-radius:999px;background:#0b6cff;color:#ffffff;text-decoration:none;font-weight:700;">Reply to {{name}}</a></p>
+          </td></tr>
+          <tr><td style="padding:18px 34px;background:#f4f7fb;color:#73879a;font-size:12px;">Open the private admin area to review and update the message status. © {{year}}.</td></tr>
+        </table>
+      </td></tr>
+    </table>
+  </body>
+</html>

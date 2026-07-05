@@ -1,0 +1,41 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: ecatu_portfolio
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      STATIC_FRONTEND_DIR: /app/public
+      MONGODB_URI: mongodb://mongodb:27017/ecatu_portfolio
+      DATABASE_REQUIRED: "true"
+      CONTACT_FALLBACK_FILE: /app/data/contact-submissions.json
+    ports:
+      - "3001:3001"
+    volumes:
+      - contact_data:/app/data
+      - log_data:/app/logs
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+volumes:
+  mongo_data:
+  contact_data:
+  log_data:
