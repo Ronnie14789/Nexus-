@@ -18,8 +18,7 @@ const atlasHint = (error: unknown, mongoURI: string): string => {
   if (lower.includes('server selection timed out') || lower.includes('connection timed out') || lower.includes('etimedout')) {
     return (
       'Atlas hint: connection timed out — your IP address may not be whitelisted. ' +
-      'In Atlas → Network Access, add your current IP. ' +
-      'For initial debugging only you can temporarily allow 0.0.0.0/0, but remove it immediately after confirming the connection.'
+      'In Atlas → Network Access, click "Add Current IP Address" or add your specific IP.'
     );
   }
   if (lower.includes('ssl') || lower.includes('tls')) {
