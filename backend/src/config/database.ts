@@ -1,5 +1,13 @@
 import mongoose from 'mongoose';
+import { getEnvironmentStatus, getMongoUri } from './env';
 import { logger } from '../utils/logger';
+
+const dbStates: Record<number, string> = {
+  0: 'disconnected',
+  1: 'connected',
+  2: 'connecting',
+  3: 'disconnecting',
+};
 
 /**
  * Returns a human-readable hint for common MongoDB Atlas connection errors.
@@ -38,15 +46,47 @@ const atlasHint = (error: unknown, mongoURI: string): string => {
   return '';
 };
 
+export const getDatabaseStatus = () => {
+  const environment = getEnvironmentStatus();
+  const state = dbStates[mongoose.connection.readyState] ?? 'unknown';
+  const diagnostics: string[] = [];
+
+  if (!environment.envFilePresent && !environment.mongoConfigured) {
+    diagnostics.push('backend/.env is missing and MONGODB_URI is not set.');
+  } else if (!environment.mongoConfigured) {
+    diagnostics.push('MONGODB_URI is not set.');
+  } else if (state !== 'connected') {
+    diagnostics.push(`MongoDB is configured but currently ${state}.`);
+  }
+
+  return {
+    state,
+    configured: environment.mongoConfigured,
+    required: environment.databaseRequired,
+    envFile: environment.envFilePresent ? 'present' : 'missing',
+    usingFallbackStorage: state !== 'connected',
+    diagnostics,
+  };
+};
+
 const connectDB = async (): Promise<boolean> => {
-  const mongoURI = process.env.MONGODB_URI;
-  const databaseRequired = process.env.DATABASE_REQUIRED === 'true';
+  const mongoURI = getMongoUri();
+  const environment = getEnvironmentStatus();
+  const { databaseRequired } = environment;
+
+  if (!environment.envFilePresent) {
+    const envWarning = mongoURI
+      ? `backend/.env was not found at ${environment.envFilePath}. Using environment variables supplied by the host process instead.`
+      : `backend/.env was not found at ${environment.envFilePath}. Copy backend/.env.example to backend/.env for local development, or provide MONGODB_URI through your host environment.`;
+    logger.warn(envWarning);
+  }
 
   if (!mongoURI) {
-    const message =
-      'MONGODB_URI is not configured. Set it in backend/.env (see backend/.env.example). Contact messages will use local server storage.';
+    const message = environment.envFilePresent
+      ? 'MONGODB_URI is not configured. Update backend/.env (see backend/.env.example) or provide it through your host environment.'
+      : 'backend/.env was not found and MONGODB_URI is not set. Copy backend/.env.example to backend/.env or provide MONGODB_URI through your host environment.';
     if (databaseRequired) throw new Error(message);
-    logger.warn(message);
+    logger.warn(`${message} Contact messages will use local server storage.`);
     return false;
   }
 
@@ -70,7 +110,10 @@ const connectDB = async (): Promise<boolean> => {
       socketTimeoutMS: 45000,
     });
 
-    logger.info('MongoDB connected successfully');
+    logger.info('MongoDB connected successfully', {
+      host: mongoose.connection.host,
+      database: mongoose.connection.name,
+    });
   } catch (error) {
     const hint = atlasHint(error, mongoURI);
     const errorMessage = error instanceof Error ? error.message : String(error);

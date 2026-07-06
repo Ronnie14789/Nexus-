@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import './config/env';
 import createApp from './app';
 import connectDB from './config/database';
 import { logger } from './utils/logger';

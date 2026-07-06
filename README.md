@@ -127,6 +127,8 @@ npm run dev
 - Backend/API: `http://localhost:3001`
 - API health: `http://localhost:3001/api/health`
 
+The health response includes `contactStorage` plus a `database` object so you can quickly confirm whether MongoDB is connected, merely configured, or currently falling back to local file storage.
+
 Build and serve the production-style application:
 
 ```bash
@@ -157,9 +159,11 @@ CONTACT_FALLBACK_FILE=./data/contact-submissions.json
 For production MongoDB:
 
 ```env
-MONGODB_URI=mongodb+srv://USER:PASSWORD@CLUSTER.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority
+MONGODB_URI=******CLUSTER.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=AppName
 DATABASE_REQUIRED=true
 ```
+
+If `backend/.env` is missing or `MONGODB_URI` is unset, the backend logs a startup warning and `/api/health` reports that contact storage has fallen back to the local file.
 
 For email delivery:
 
