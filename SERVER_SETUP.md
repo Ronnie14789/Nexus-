@@ -92,7 +92,7 @@ File fallback keeps the form operational, but a production host must use persist
    Example (replace values in UPPER-CASE):
 
    ```env
-   MONGODB_URI=mongodb+srv://USERNAME:YOUR_URLENCODED_PASSWORD@CLUSTER.SUBDOMAIN.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=EcatuPortfolio
+   MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@CLUSTER.SUBDOMAIN.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=EcatuPortfolio
    DATABASE_REQUIRED=true
    ```
 
