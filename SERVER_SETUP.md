@@ -28,9 +28,13 @@ Formspree is not used.
 Set:
 
 ```env
-MONGODB_URI=mongodb+srv://USER:PASSWORD@HOST/ecatu_portfolio
+MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@CLUSTER.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=AppName
 DATABASE_REQUIRED=true
 ```
+
+**Important:** the database name (`ecatu_portfolio` above) **must** appear in the URI path,
+between the hostname and the `?` query string. A URI ending in `.net/?...` with no path
+will connect to a default database and may produce unexpected behaviour.
 
 The health endpoint reports:
 
@@ -55,6 +59,52 @@ The health endpoint reports:
 ```
 
 File fallback keeps the form operational, but a production host must use persistent storage. Ephemeral hosting filesystems may erase locally stored messages during redeployment.
+
+## MongoDB Atlas quick-start
+
+1. **Copy the example environment file:**
+
+   ```bash
+   cp backend/.env.example backend/.env
+   ```
+
+2. **Build the correct URI.** Use the pattern:
+
+   ```
+   mongodb+srv://USERNAME:PASSWORD@CLUSTER.mongodb.net/DATABASE?retryWrites=true&w=majority&appName=AppName
+   ```
+
+   Example (replace values in UPPER-CASE):
+
+   ```env
+   MONGODB_URI=mongodb+srv://Ecatu:YOUR_PASSWORD@ecatu.mmgbkst.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=Ecatu
+   DATABASE_REQUIRED=true
+   ```
+
+3. **Whitelist your IP** in Atlas → Network Access → Add IP Address.  
+   For quick testing you can allow `0.0.0.0/0` (remove it after testing).
+
+4. **Confirm the database user** in Atlas → Database Access:  
+   - The username and password must match `MONGODB_URI`.  
+   - The user must have at least read/write access to the database.
+
+5. **Start the server** and call the health endpoint:
+
+   ```text
+   GET http://localhost:3001/api/health
+   ```
+
+   A successful response includes `"database": "connected"`.
+
+### Common Atlas connection errors and fixes
+
+| Symptom in logs | Likely cause | Fix |
+|---|---|---|
+| `Authentication failed` | Wrong username or password | Re-check Atlas → Database Access credentials |
+| `ENOTFOUND` / `querySrv` | Hostname typo or DNS issue | Check the cluster address in the URI |
+| `Server selection timed out` | IP not whitelisted | Add your IP in Atlas → Network Access |
+| `SSL` / `TLS` error | Wrong URI scheme | Use `mongodb+srv://` not `mongodb://` for Atlas |
+| Data saved but wrong collection | Database name missing | Add `/ecatu_portfolio` before the `?` in the URI |
 
 ## SMTP provider configuration
 

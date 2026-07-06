@@ -157,7 +157,7 @@ CONTACT_FALLBACK_FILE=./data/contact-submissions.json
 For production MongoDB:
 
 ```env
-MONGODB_URI=mongodb+srv://USER:PASSWORD@CLUSTER/ecatu_portfolio
+MONGODB_URI=mongodb+srv://USER:PASSWORD@CLUSTER.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority
 DATABASE_REQUIRED=true
 ```
 
