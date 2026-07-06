@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import express, { Application } from 'express';
+import mongoose from 'mongoose';
 import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -85,11 +86,19 @@ const createApp = (): Application => {
   }
 
   app.get('/api/health', (_req, res) => {
+    const dbReadyState = mongoose.connection.readyState;
+    const dbStateLabels: Record<number, string> = {
+      0: 'disconnected',
+      1: 'connected',
+      2: 'connecting',
+      3: 'disconnecting',
+    };
     res.json({
       success: true,
       status: 'healthy',
       timestamp: new Date().toISOString(),
       version: process.env.npm_package_version || '1.0.0',
+      database: dbStateLabels[dbReadyState] ?? 'unknown',
       contactStorage: contactStore.storageMode(),
     });
   });

@@ -39,7 +39,7 @@ will connect to a default database and may produce unexpected behaviour.
 The health endpoint reports:
 
 ```json
-{"contactStorage":"mongodb"}
+{"contactStorage":"mongodb","database":"connected"}
 ```
 
 ### Local server-file mode — useful for preview and small private deployments
@@ -55,7 +55,7 @@ CONTACT_FALLBACK_FILE=./data/contact-submissions.json
 The health endpoint reports:
 
 ```json
-{"contactStorage":"file"}
+{"contactStorage":"file","database":"disconnected"}
 ```
 
 File fallback keeps the form operational, but a production host must use persistent storage. Ephemeral hosting filesystems may erase locally stored messages during redeployment.
@@ -94,7 +94,13 @@ File fallback keeps the form operational, but a production host must use persist
    GET http://localhost:3001/api/health
    ```
 
-   A successful response includes `"database": "connected"`.
+   A successful response looks like:
+
+   ```json
+   {"success":true,"status":"healthy","database":"connected","contactStorage":"mongodb"}
+   ```
+
+   If `database` is `"disconnected"` or `contactStorage` is `"file"`, MongoDB is not yet connected — review the steps above and the error hints in the server log.
 
 ### Common Atlas connection errors and fixes
 
