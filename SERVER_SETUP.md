@@ -28,7 +28,7 @@ Formspree is not used.
 Set:
 
 ```env
-MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@CLUSTER.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=AppName
+   MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@CLUSTER.SUBDOMAIN.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=AppName
 DATABASE_REQUIRED=true
 ```
 
@@ -86,13 +86,13 @@ File fallback keeps the form operational, but a production host must use persist
 2. **Build the correct URI.** Use the pattern:
 
    ```
-   mongodb+srv://USERNAME:PASSWORD@CLUSTER.mongodb.net/DATABASE?retryWrites=true&w=majority&appName=AppName
+   mongodb+srv://USERNAME:PASSWORD@CLUSTER.SUBDOMAIN.mongodb.net/DATABASE?retryWrites=true&w=majority&appName=AppName
    ```
 
    Example (replace values in UPPER-CASE):
 
    ```env
-   MONGODB_URI=mongodb+srv://USERNAME:YOUR_URLENCODED_PASSWORD@CLUSTER.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=EcatuPortfolio
+   MONGODB_URI=mongodb+srv://USERNAME:YOUR_URLENCODED_PASSWORD@CLUSTER.SUBDOMAIN.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=EcatuPortfolio
    DATABASE_REQUIRED=true
    ```
 
