@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import '../config/env';
 import mongoose from 'mongoose';
 import AdminUser from '../models/AdminUser';
 
@@ -35,7 +35,7 @@ const run = async (): Promise<void> => {
   const email = process.env.ADMIN_EMAIL;
   const password = process.env.ADMIN_PASSWORD;
 
-  if (!mongoUri) throw new Error('MONGODB_URI is required. Set it in backend/.env (see backend/.env.example).');
+  if (!mongoUri) throw new Error('MONGODB_URI is required. Add it to backend/.env or provide it through your host environment.');
   if (!username || username.length < 3) throw new Error('ADMIN_USERNAME must contain at least 3 characters');
   if (!email || !/^\S+@\S+\.\S+$/.test(email)) throw new Error('ADMIN_EMAIL must be a valid email address');
   if (!password || password.length < 12) throw new Error('ADMIN_PASSWORD must contain at least 12 characters');
