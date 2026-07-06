@@ -39,7 +39,13 @@ will connect to a default database and may produce unexpected behaviour.
 The health endpoint reports:
 
 ```json
-{"contactStorage":"mongodb"}
+{
+  "contactStorage": "mongodb",
+  "database": {
+    "state": "connected",
+    "usingFallbackStorage": false
+  }
+}
 ```
 
 ### Local server-file mode — useful for preview and small private deployments
@@ -55,7 +61,14 @@ CONTACT_FALLBACK_FILE=./data/contact-submissions.json
 The health endpoint reports:
 
 ```json
-{"contactStorage":"file"}
+{
+  "contactStorage": "file",
+  "database": {
+    "state": "disconnected",
+    "usingFallbackStorage": true,
+    "diagnostics": ["MONGODB_URI is not set."]
+  }
+}
 ```
 
 File fallback keeps the form operational, but a production host must use persistent storage. Ephemeral hosting filesystems may erase locally stored messages during redeployment.
@@ -68,6 +81,8 @@ File fallback keeps the form operational, but a production host must use persist
    cp backend/.env.example backend/.env
    ```
 
+   If `backend/.env` is missing, the server now logs that explicitly on startup. That warning is expected only when your deployment injects environment variables another way.
+
 2. **Build the correct URI.** Use the pattern:
 
    ```
@@ -77,7 +92,7 @@ File fallback keeps the form operational, but a production host must use persist
    Example (replace values in UPPER-CASE):
 
    ```env
-   MONGODB_URI=mongodb+srv://Ecatu:YOUR_PASSWORD@ecatu.mmgbkst.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=Ecatu
+   MONGODB_URI=******CLUSTER.mongodb.net/ecatu_portfolio?retryWrites=true&w=majority&appName=EcatuPortfolio
    DATABASE_REQUIRED=true
    ```
 
@@ -94,7 +109,7 @@ File fallback keeps the form operational, but a production host must use persist
    GET http://localhost:3001/api/health
    ```
 
-   A successful response includes `"database": "connected"`.
+   A successful response includes `"contactStorage": "mongodb"` and `"database.state": "connected"`.
 
 ### Common Atlas connection errors and fixes
 
@@ -183,7 +198,7 @@ The public navigation intentionally does not advertise the admin route.
 GET /api/health
 ```
 
-A healthy response includes the timestamp, version, and active contact-storage mode.
+A healthy response includes the timestamp, version, active contact-storage mode, and MongoDB diagnostics that show whether the app is connected or falling back to local file storage.
 
 ## Contact API contract
 
