@@ -1,6 +1,5 @@
 import crypto from 'crypto';
 import express, { Application } from 'express';
-import mongoose from 'mongoose';
 import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -11,7 +10,6 @@ import { errorHandler, notFound } from './middleware/errorHandler';
 import { monitoringMiddleware } from './middleware/monitoring';
 import { initSentry, sentryErrorHandler } from './config/sentry';
 import { logger } from './utils/logger';
-import { contactStore } from './services/contactStore';
 
 import contactRoutes from './routes/contact';
 import newsletterRoutes from './routes/newsletter';
@@ -22,6 +20,7 @@ import uploadRoutes from './routes/upload';
 import authRoutes from './routes/auth';
 import adminRoutes from './routes/admin';
 import analyticsRoutes from './routes/analytics';
+import healthRoutes from './routes/health';
 
 const createApp = (): Application => {
   const app = express();
@@ -85,24 +84,7 @@ const createApp = (): Application => {
     app.use('/api', monitoringMiddleware);
   }
 
-  app.get('/api/health', (_req, res) => {
-    const dbReadyState = mongoose.connection.readyState;
-    const dbStateLabels: Record<number, string> = {
-      0: 'disconnected',
-      1: 'connected',
-      2: 'connecting',
-      3: 'disconnecting',
-    };
-    res.json({
-      success: true,
-      status: 'healthy',
-      timestamp: new Date().toISOString(),
-      version: process.env.npm_package_version || '1.0.0',
-      database: dbStateLabels[dbReadyState] ?? 'unknown',
-      contactStorage: contactStore.storageMode(),
-    });
-  });
-
+  app.use('/api/health', healthRoutes);
   app.use('/api/auth', authRoutes);
   app.use('/api/admin', adminRoutes);
   app.use('/api/contact', contactRoutes);
