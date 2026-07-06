@@ -3,8 +3,9 @@ import { logger } from '../utils/logger';
 
 /**
  * Returns a human-readable hint for common MongoDB Atlas connection errors.
+ * Accepts the URI so the function stays pure and testable.
  */
-const atlasHint = (error: unknown): string => {
+const atlasHint = (error: unknown, mongoURI: string): string => {
   const msg = error instanceof Error ? error.message : String(error);
   const lower = msg.toLowerCase();
 
@@ -15,13 +16,25 @@ const atlasHint = (error: unknown): string => {
     return 'Atlas hint: hostname not found — verify the cluster address in MONGODB_URI and that your DNS resolves SRV records.';
   }
   if (lower.includes('server selection timed out') || lower.includes('connection timed out') || lower.includes('etimedout')) {
-    return 'Atlas hint: connection timed out — your IP address may not be whitelisted. In Atlas → Network Access, add your IP or temporarily allow 0.0.0.0/0 for testing.';
+    return (
+      'Atlas hint: connection timed out — your IP address may not be whitelisted. ' +
+      'In Atlas → Network Access, add your current IP. ' +
+      'For initial debugging only you can temporarily allow 0.0.0.0/0, but remove it immediately after confirming the connection.'
+    );
   }
   if (lower.includes('ssl') || lower.includes('tls')) {
     return 'Atlas hint: TLS/SSL error — make sure you are using an SRV URI (mongodb+srv://) and that the cluster certificate is valid.';
   }
-  if (!process.env.MONGODB_URI?.includes('/') || process.env.MONGODB_URI.split('mongodb.net/')[1]?.startsWith('?')) {
-    return 'Atlas hint: the URI may be missing a database name. Add it after the hostname, e.g. ...mongodb.net/ecatu_portfolio?retryWrites=true&w=majority';
+  // Check whether the URI is missing a database name (fallback hint).
+  try {
+    const url = new URL(mongoURI);
+    const isAtlas = url.hostname.endsWith('.mongodb.net');
+    const hasDbName = url.pathname.length > 1; // more than just '/'
+    if (isAtlas && !hasDbName) {
+      return 'Atlas hint: the URI is missing a database name. Add it after the hostname, e.g. ...mongodb.net/ecatu_portfolio?retryWrites=true&w=majority';
+    }
+  } catch {
+    // Unparseable URI — mongoose will report the error itself.
   }
   return '';
 };
@@ -38,13 +51,17 @@ const connectDB = async (): Promise<boolean> => {
     return false;
   }
 
-  // Warn early when the URI is clearly missing a database name.
-  const afterHost = mongoURI.split('.net/')[1];
-  if (mongoURI.includes('mongodb.net') && (!afterHost || afterHost.startsWith('?') || afterHost === '')) {
-    logger.warn(
-      'MONGODB_URI appears to be missing a database name. ' +
-      'Add it after the hostname, e.g. ...mongodb.net/ecatu_portfolio?retryWrites=true&w=majority',
-    );
+  // Warn early when an Atlas URI is clearly missing a database name.
+  try {
+    const url = new URL(mongoURI);
+    if (url.hostname.endsWith('.mongodb.net') && url.pathname.length <= 1) {
+      logger.warn(
+        'MONGODB_URI appears to be missing a database name. ' +
+        'Add it after the hostname, e.g. ...mongodb.net/ecatu_portfolio?retryWrites=true&w=majority',
+      );
+    }
+  } catch {
+    // Invalid URI syntax — mongoose will report the detailed error.
   }
 
   try {
@@ -56,7 +73,7 @@ const connectDB = async (): Promise<boolean> => {
 
     logger.info('MongoDB connected successfully');
   } catch (error) {
-    const hint = atlasHint(error);
+    const hint = atlasHint(error, mongoURI);
     const errorMessage = error instanceof Error ? error.message : String(error);
 
     if (databaseRequired) {

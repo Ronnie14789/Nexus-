@@ -82,7 +82,7 @@ File fallback keeps the form operational, but a production host must use persist
    ```
 
 3. **Whitelist your IP** in Atlas → Network Access → Add IP Address.  
-   For quick testing you can allow `0.0.0.0/0` (remove it after testing).
+   For initial debugging only, you can temporarily allow `0.0.0.0/0` — remove this rule immediately once the connection is confirmed, as it exposes your cluster to the public internet.
 
 4. **Confirm the database user** in Atlas → Database Access:  
    - The username and password must match `MONGODB_URI`.  
