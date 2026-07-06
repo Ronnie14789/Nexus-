@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
-import mongoose from 'mongoose';
+import { getDatabaseStatus } from '../config/database';
+import { contactStore } from '../services/contactStore';
 
 const router = Router();
 
@@ -14,19 +15,15 @@ const router = Router();
  *         description: API is running
  */
 router.get('/', (_req: Request, res: Response) => {
-  const dbStatus = mongoose.connection.readyState;
-  const dbStates: Record<number, string> = { 0: 'disconnected', 1: 'connected', 2: 'connecting', 3: 'disconnecting' };
-
   res.json({
     success: true,
-    message: 'Ecatu Ronald Portfolio API is running',
-    data: {
-      status: 'healthy',
-      timestamp: new Date().toISOString(),
-      database: dbStates[dbStatus] ?? 'unknown',
-      uptime: Math.floor(process.uptime()),
-      environment: process.env.NODE_ENV ?? 'development',
-    },
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    version: process.env.npm_package_version || '1.0.0',
+    uptime: Math.floor(process.uptime()),
+    environment: process.env.NODE_ENV ?? 'development',
+    contactStorage: contactStore.storageMode(),
+    database: getDatabaseStatus(),
   });
 });
 
