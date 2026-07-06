@@ -42,6 +42,7 @@ body { background: var(--nx-paper); color: var(--nx-ink); font-family: var(--nx-
 .nx-section-head-dark { color: #f4faff; }
 .nx-section-head-dark > p { color: #94aabd; }
 .nx-section-head-dark .nx-eyebrow { color: var(--nx-cyan); }
+.nx-section-head-wide { align-items: center; }
 
 /* Header ================================================================== */
 .nx-header { position: fixed; z-index: 1600; inset: 0 0 auto; padding: 18px 22px; transition: padding .3s ease; }
@@ -149,6 +150,7 @@ body { background: var(--nx-paper); color: var(--nx-ink); font-family: var(--nx-
 .nx-profile { background: var(--nx-paper); }
 .nx-profile-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr .95fr; gap: 100px; align-items: center; }
 .nx-profile-visual { position: relative; min-height: 720px; }
+.nx-profile-copy { position: relative; z-index: 2; display: grid; align-content: start; }
 .nx-profile-image-main { position: absolute; inset: 0 16% 0 0; overflow: hidden; border-radius: 260px 260px 28px 28px; background: #ddd4c7; box-shadow: var(--nx-shadow); }
 .nx-profile-image-main::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(4,14,22,.65) 100%); }
 .nx-profile-image-main img { width: 100%; height: 100%; object-fit: cover; object-position: 52% center; }
