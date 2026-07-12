@@ -42,3 +42,5 @@ redis_data/
 # Local contact-message fallback storage
 backend/data/*.json
 !backend/data/.gitkeep
+
+backend/.env

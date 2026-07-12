@@ -53,7 +53,16 @@ export default function CommandPalette() {
   const navigate = (href: string) => {
     setOpen(false);
     setQuery('');
-    window.setTimeout(() => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }), 80);
+
+    if (window.location.pathname !== '/') {
+      window.location.assign(`/${href}`);
+      return;
+    }
+
+    window.setTimeout(
+      () => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }),
+      80,
+    );
   };
 
   return (

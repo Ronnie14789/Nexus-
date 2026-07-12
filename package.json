@@ -1,7 +1,7 @@
 {
   "name": "ecatu-ronald-portfolio",
   "version": "8.0.0",
-  "description": "Ecatu Ronald — Electrical & Automotive Systems Engineer full-stack portfolio",
+  "description": "Ecatu Ronald \u2014 Electrical & Automotive Systems Engineer full-stack portfolio",
   "private": true,
   "scripts": {
     "setup": "npm install --prefix frontend && npm install --prefix backend",
@@ -9,9 +9,9 @@
     "dev:backend": "npm run dev --prefix backend",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "build:frontend": "npm install --prefix frontend && npm run build --prefix frontend",
-    "build:backend": "npm run build --prefix backend",
+    "build:backend": "npm install --prefix backend && npm run build --prefix backend",
     "build:full": "npm run build:backend && npm run build:frontend",
-    "build": "npm run build:frontend && rm -rf dist && mkdir -p dist && cp -r frontend/dist/. dist/",
+    "build": "npm run build:full",
     "lint:frontend": "npm run lint --prefix frontend",
     "lint:backend": "npm run lint --prefix backend",
     "lint": "npm run lint:backend && npm run lint:frontend",
@@ -21,7 +21,8 @@
     "docker:dev": "docker compose -f docker-compose.dev.yml up",
     "docker:prod": "docker compose up --build",
     "docker:down": "docker compose down",
-    "verify": "npm run lint && npm run build:full"
+    "verify": "npm run lint && npm run build:full",
+    "start": "node scripts/start-production.mjs"
   },
   "devDependencies": {
     "concurrently": "^10.0.3",

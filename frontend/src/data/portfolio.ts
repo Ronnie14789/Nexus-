@@ -15,7 +15,7 @@ export const siteConfig = {
   languages: ['English', 'Ateso', 'Luganda'],
   socialLinks: {
     linkedin: 'https://www.linkedin.com/in/ronald-ecatu-0349673b8/',
-    github: '',
+    github: 'https://github.com/Ronnie14789',
     x: '',
   },
 };

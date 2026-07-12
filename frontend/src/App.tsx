@@ -3,12 +3,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import AppErrorBoundary from '@/components/AppErrorBoundary';
 import Header from '@/components/Header';
+import CommandPalette from '@/components/CommandPalette';
 import ScrollToTop from '@/components/ScrollToTop';
 import { usePerformanceMetrics } from '@/hooks/usePerformanceMetrics';
 import { initGA, usePageTracking } from '@/lib/analytics';
 import { initSentry } from '@/lib/sentry';
 
 const Home = lazy(() => import('@/pages/Home'));
+const About = lazy(() => import('@/pages/About'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 const AdminLogin = lazy(() => import('@/pages/admin/AdminLogin'));
 const AdminLayout = lazy(() => import('@/pages/admin/AdminLayout'));
@@ -55,9 +57,11 @@ export default function App() {
       <BrowserRouter>
         <AnalyticsTracker />
         <Header />
+        <CommandPalette />
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
