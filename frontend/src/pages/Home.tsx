@@ -1,5 +1,4 @@
 import AmbientPointer from '@/components/AmbientPointer';
-import CommandPalette from '@/components/CommandPalette';
 import Contact from '@/components/Contact';
 import NexusFooter from '@/components/nexus/NexusFooter';
 import { NexusGallery } from '@/components/nexus/NexusGallery';
@@ -15,7 +14,6 @@ export default function Home() {
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
       <AmbientPointer />
-      <CommandPalette />
       <main id="main-content" className="nx-site">
         <NexusHero />
         <NexusProfile />

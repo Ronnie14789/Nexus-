@@ -72,13 +72,33 @@ export default function Header() {
         </Link>
 
         <ul className="nx-nav-links">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} className={activeSection === link.href.slice(1) ? 'active' : ''}>
-                <span>{link.no}</span>{link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const href = location.pathname === '/' ? link.href : `/${link.href}`;
+
+            return (
+              <li key={link.href}>
+                <a
+                  href={href}
+                  className={
+                    location.pathname === '/' &&
+                    activeSection === link.href.slice(1)
+                      ? 'active'
+                      : ''
+                  }
+                >
+                  <span>{link.no}</span>{link.label}
+                </a>
+              </li>
+            );
+          })}
+          <li>
+            <Link
+              to="/about"
+              className={location.pathname === '/about' ? 'active' : ''}
+            >
+              <span>08</span>About
+            </Link>
+          </li>
         </ul>
 
         <div className="nx-nav-actions">
@@ -88,7 +108,10 @@ export default function Header() {
           <button className="nx-theme" type="button" onClick={toggleTheme} aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}>
             <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
           </button>
-          <a className="nx-nav-cta" href="#contact">Connect <Icon name="arrow" /></a>
+          <a
+            className="nx-nav-cta"
+            href={location.pathname === '/' ? '#contact' : '/#contact'}
+          >Connect <Icon name="arrow" /></a>
           <button className="nx-menu-button" type="button" onClick={() => setMenuOpen((current) => !current)} aria-expanded={menuOpen} aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}>
             <span>{menuOpen ? 'Close' : 'Menu'}</span><Icon name={menuOpen ? 'x' : 'menu'} />
           </button>
@@ -106,13 +129,35 @@ export default function Header() {
           >
             <div className="nx-mobile-menu-head"><span>Portfolio index</span><small>{siteConfig.location}</small></div>
             <ul>
-              {navLinks.map((link, index) => (
-                <motion.li key={link.href} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.045 }}>
-                  <a href={link.href} onClick={() => setMenuOpen(false)}>
-                    <span>{link.no}</span><strong>{link.label}</strong><Icon name="arrow" />
-                  </a>
-                </motion.li>
-              ))}
+              {navLinks.map((link, index) => {
+                const href = location.pathname === '/' ? link.href : `/${link.href}`;
+
+                return (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.045 }}
+                  >
+                    <a href={href} onClick={() => setMenuOpen(false)}>
+                      <span>{link.no}</span>
+                      <strong>{link.label}</strong>
+                      <Icon name="arrow" />
+                    </a>
+                  </motion.li>
+                );
+              })}
+              <motion.li
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.045 }}
+              >
+                <Link to="/about" onClick={() => setMenuOpen(false)}>
+                  <span>08</span>
+                  <strong>About</strong>
+                  <Icon name="arrow" />
+                </Link>
+              </motion.li>
             </ul>
             <div className="nx-mobile-menu-footer">
               <p>{siteConfig.role}</p>
