@@ -7,7 +7,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(scriptDir, '..');
 
-const frontendDir = path.join(rootDir, 'frontend', 'dist');
+const frontendDir = path.join(rootDir, 'dist');
 const backendEntry = path.join(rootDir, 'backend', 'dist', 'server.js');
 const contactDataFile = path.join(
   rootDir,
