@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import crypto from 'crypto';
-import mongoose from 'mongoose';
+import mongoose, { FilterQuery } from 'mongoose';
 import ContactSubmission, {
   ContactStatus,
   DeliveryChannel,
@@ -249,10 +249,10 @@ export const contactStore = {
 
   async list(options: ContactListOptions): Promise<ContactListResult> {
     if (databaseReady()) {
-      const filter: Record<string, unknown> = {};
-      if (options.status) filter.status = options.status;
-      if (options.enquiryType) filter.enquiryType = options.enquiryType;
-      if (options.emailStatus) filter.emailStatus = options.emailStatus;
+      const filter: FilterQuery<typeof ContactSubmission> = {};
+      if (options.status) filter.status = { $eq: options.status };
+      if (options.enquiryType) filter.enquiryType = { $eq: options.enquiryType };
+      if (options.emailStatus) filter.emailStatus = { $eq: options.emailStatus };
       if (options.search) {
         const expression = new RegExp(escapeRegex(options.search), 'i');
         filter.$or = [
