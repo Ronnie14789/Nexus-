@@ -2,7 +2,13 @@ import { Router } from 'express';
 import { body } from 'express-validator';
 import { contactLimiter } from '../middleware/rateLimiter';
 import { authenticate } from '../middleware/auth';
-import { submitContact, listContacts, updateContactStatus } from '../controllers/contactController';
+import {
+  getContactStats,
+  listContacts,
+  resendContactEmail,
+  submitContact,
+  updateContactStatus,
+} from '../controllers/contactController';
 
 const router = Router();
 
@@ -32,7 +38,9 @@ const contactValidation = [
 ];
 
 router.post('/', contactLimiter, contactValidation, submitContact);
+router.get('/stats', authenticate, getContactStats);
 router.get('/', authenticate, listContacts);
 router.patch('/:id/status', authenticate, updateContactStatus);
+router.post('/:id/resend', authenticate, resendContactEmail);
 
 export default router;
