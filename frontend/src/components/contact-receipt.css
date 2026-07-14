@@ -1,0 +1,91 @@
+.vg-form-receipt {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 24px;
+  padding: 17px;
+  border: 1px solid rgba(72, 205, 255, 0.28);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(43, 170, 255, 0.12), transparent 42%),
+    rgba(5, 25, 42, 0.76);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.vg-form-receipt-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 13px;
+  background: #27c9a7;
+  color: #021711;
+}
+
+.vg-form-receipt-mark svg {
+  width: 20px;
+  height: 20px;
+}
+
+.vg-form-receipt-copy {
+  min-width: 0;
+}
+
+.vg-form-receipt-copy small {
+  display: block;
+  color: #75d7ff;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+
+.vg-form-receipt-copy strong {
+  display: block;
+  margin-top: 5px;
+  color: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1rem;
+  letter-spacing: 0.055em;
+}
+
+.vg-form-receipt-copy p {
+  margin: 7px 0 0;
+  color: rgba(216, 232, 243, 0.7);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.vg-form-receipt > button {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.68);
+  cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.vg-form-receipt > button:hover {
+  border-color: rgba(72, 205, 255, 0.45);
+  background: rgba(72, 205, 255, 0.08);
+  color: #fff;
+}
+
+.vg-form-receipt > button svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 560px) {
+  .vg-form-receipt {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .vg-form-receipt > button {
+    display: none;
+  }
+}

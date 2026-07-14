@@ -1,9 +1,10 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { useEffect, useMemo, useState, type ChangeEvent, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import toast from 'react-hot-toast';
 import api from '@/lib/api';
 import { siteConfig } from '@/data/portfolio';
 import Icon from '@/components/ui/Icon';
+import './contact-receipt.css';
 
 interface ContactForm {
   name: string;
@@ -14,6 +15,13 @@ interface ContactForm {
   message: string;
   consent: boolean;
   companyWebsite: string;
+}
+
+interface ContactReceipt {
+  id: string;
+  referenceNumber: string;
+  storage: string;
+  emailDelivery: string;
 }
 
 type FormErrors = Partial<Record<keyof ContactForm, string>>;
@@ -36,8 +44,9 @@ export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [apiUnavailable, setApiUnavailable] = useState(false);
   const [serverState, setServerState] = useState<ServerState>('checking');
+  const [receipt, setReceipt] = useState<ContactReceipt | null>(null);
   const reduceMotion = useReducedMotion();
-  const startedAt = useMemo(() => Date.now(), []);
+  const startedAt = useRef(Date.now());
 
   useEffect(() => {
     let active = true;
@@ -64,6 +73,7 @@ export default function Contact() {
     const value = target instanceof HTMLInputElement && target.type === 'checkbox' ? target.checked : target.value;
     setForm((current) => ({ ...current, [name]: value }));
     setErrors((current) => ({ ...current, [name]: undefined }));
+    if (receipt) setReceipt(null);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -71,11 +81,19 @@ export default function Contact() {
     if (!validate()) return;
     setSubmitting(true);
     setApiUnavailable(false);
+    setReceipt(null);
+
     try {
-      await api.post('/contact', { ...form, startedAt });
+      const response = await api.post<{ success: boolean; data: ContactReceipt; message: string }>(
+        '/contact',
+        { ...form, startedAt: startedAt.current }
+      );
+      const nextReceipt = response.data.data;
+      setReceipt(nextReceipt);
       setForm(createInitialForm());
+      startedAt.current = Date.now();
       setServerState('online');
-      toast.success('Your message was received securely. Thank you for reaching out.');
+      toast.success(`Message secured. Reference ${nextReceipt.referenceNumber}.`);
     } catch (error: unknown) {
       const responseError = error as { response?: { data?: { message?: string } } };
       setApiUnavailable(true);
@@ -92,6 +110,16 @@ export default function Contact() {
       toast.success('Email address copied.');
     } catch {
       toast.error('Could not copy the email address.');
+    }
+  };
+
+  const copyReference = async () => {
+    if (!receipt) return;
+    try {
+      await navigator.clipboard.writeText(receipt.referenceNumber);
+      toast.success('Message reference copied.');
+    } catch {
+      toast.error('Could not copy the message reference.');
     }
   };
 
@@ -132,7 +160,7 @@ export default function Contact() {
 
             <div className={`vg-infrastructure is-${serverState}`}>
               <div className="vg-infrastructure-signal"><i /><i /><i /></div>
-              <div><small>FIRST-PARTY CONTACT INFRASTRUCTURE</small><strong>{serverLabel}</strong><p>Validation, spam protection, message storage and configured email delivery—without Formspree.</p></div>
+              <div><small>FIRST-PARTY CONTACT INFRASTRUCTURE</small><strong>{serverLabel}</strong><p>Validation, spam protection, message storage and tracked email delivery—without Formspree.</p></div>
             </div>
           </motion.aside>
 
@@ -149,6 +177,18 @@ export default function Contact() {
               <div><small>SECURE MESSAGE CHANNEL</small><h3>Tell me what you are working on.</h3></div>
               <span className={`vg-form-status is-${serverState}`}><i /> {serverLabel}</span>
             </div>
+
+            {receipt ? (
+              <div className="vg-form-receipt" role="status" aria-live="polite">
+                <div className="vg-form-receipt-mark"><Icon name="check" /></div>
+                <div className="vg-form-receipt-copy">
+                  <small>MESSAGE SECURED</small>
+                  <strong>{receipt.referenceNumber}</strong>
+                  <p>Your enquiry is stored in the Nexus communications system. Email delivery is being processed and tracked separately.</p>
+                </div>
+                <button type="button" onClick={copyReference} aria-label="Copy message reference"><Icon name="copy" /></button>
+              </div>
+            ) : null}
 
             <div className="honeypot" aria-hidden="true"><label>Company website<input name="companyWebsite" value={form.companyWebsite} onChange={handleChange} tabIndex={-1} autoComplete="off" /></label></div>
 

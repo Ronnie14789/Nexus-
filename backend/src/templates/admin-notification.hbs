@@ -1,25 +1,112 @@
 <!doctype html>
 <html lang="en">
-  <body style="margin:0;background:#eef4fa;font-family:Arial,sans-serif;color:#0b1a2b;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:32px 16px;background:#eef4fa;">
-      <tr><td align="center">
-        <table role="presentation" width="650" cellpadding="0" cellspacing="0" style="max-width:650px;background:#ffffff;border-radius:22px;overflow:hidden;box-shadow:0 18px 45px rgba(12,35,58,.12);">
-          <tr><td style="padding:28px 34px;background:#061528;color:#ffffff;"><div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#71cfff;font-weight:700;">Portfolio server</div><h1 style="margin:12px 0 0;font-size:26px;">New contact message</h1></td></tr>
-          <tr><td style="padding:32px 34px;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
-              <tr><td style="padding:10px 0;color:#73879a;width:150px;">Name</td><td style="padding:10px 0;font-weight:700;">{{name}}</td></tr>
-              <tr><td style="padding:10px 0;color:#73879a;">Email</td><td style="padding:10px 0;"><a href="mailto:{{email}}" style="color:#0b6cff;">{{email}}</a></td></tr>
-              <tr><td style="padding:10px 0;color:#73879a;">Phone</td><td style="padding:10px 0;">{{phone}}</td></tr>
-              <tr><td style="padding:10px 0;color:#73879a;">Enquiry type</td><td style="padding:10px 0;">{{enquiryType}}</td></tr>
-              <tr><td style="padding:10px 0;color:#73879a;">Subject</td><td style="padding:10px 0;font-weight:700;">{{subject}}</td></tr>
-              <tr><td style="padding:10px 0;color:#73879a;">Submitted</td><td style="padding:10px 0;">{{submittedAt}}</td></tr>
-            </table>
-            <div style="margin-top:22px;padding:20px;border:1px solid #dbe6ef;border-radius:14px;background:#f7fafc;white-space:pre-line;line-height:1.65;color:#41576b;">{{message}}</div>
-            <p style="margin:24px 0 0;"><a href="mailto:{{email}}?subject=Re:%20{{subject}}" style="display:inline-block;padding:12px 18px;border-radius:999px;background:#0b6cff;color:#ffffff;text-decoration:none;font-weight:700;">Reply to {{name}}</a></p>
-          </td></tr>
-          <tr><td style="padding:18px 34px;background:#f4f7fb;color:#73879a;font-size:12px;">Open the private admin area to review and update the message status. © {{year}}.</td></tr>
-        </table>
-      </td></tr>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>New contact enquiry · {{referenceNumber}}</title>
+  </head>
+  <body style="margin:0;padding:0;background:#050d17;font-family:Arial,Helvetica,sans-serif;color:#102033;">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
+      New portfolio enquiry from {{name}} · {{referenceNumber}}.
+    </div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#050d17;">
+      <tr>
+        <td align="center" style="padding:28px 12px;">
+          <table role="presentation" width="680" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:680px;background:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.38);">
+            <tr>
+              <td style="padding:28px 32px;background:#071a2e;border-bottom:1px solid #173550;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td width="54" valign="middle">
+                      <div style="width:46px;height:46px;line-height:46px;text-align:center;border-radius:14px;background:#149cff;color:#ffffff;font-size:18px;font-weight:800;letter-spacing:1px;">ER</div>
+                    </td>
+                    <td valign="middle">
+                      <div style="font-size:11px;line-height:1.4;letter-spacing:2.2px;text-transform:uppercase;color:#67c7ff;font-weight:700;">Nexus Communications Console</div>
+                      <div style="margin-top:4px;font-size:18px;line-height:1.3;color:#ffffff;font-weight:700;">New portfolio enquiry</div>
+                    </td>
+                    <td align="right" valign="middle">
+                      <div style="display:inline-block;padding:8px 11px;border-radius:999px;background:#102f49;color:#7ad3ff;font-size:10px;letter-spacing:1.3px;font-weight:700;">NEW</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:30px 32px 0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#edf7ff;border:1px solid #cbe8fb;border-radius:18px;">
+                  <tr>
+                    <td style="padding:22px 24px;">
+                      <div style="font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:#39759a;font-weight:700;">Reference</div>
+                      <div style="margin-top:6px;font-size:24px;line-height:1.2;color:#071a2e;font-weight:800;letter-spacing:1px;">{{referenceNumber}}</div>
+                      <div style="margin-top:8px;font-size:12px;color:#5d7b91;">Received {{submittedAt}} · East Africa Time</div>
+                    </td>
+                    <td width="160" align="right" valign="middle" style="padding:22px 24px;">
+                      <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#39759a;font-weight:700;">Enquiry type</div>
+                      <div style="margin-top:7px;font-size:13px;line-height:1.45;color:#0e3551;font-weight:700;">{{enquiryType}}</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:24px 32px 32px;">
+                <h1 style="margin:0 0 6px;font-size:27px;line-height:1.25;color:#071a2e;letter-spacing:-.4px;">{{subject}}</h1>
+                <p style="margin:0 0 24px;font-size:13px;line-height:1.6;color:#6d8295;">A new message has entered the private portfolio communications system.</p>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #dde7ef;border-radius:16px;overflow:hidden;">
+                  <tr>
+                    <td width="50%" valign="top" style="padding:18px 20px;border-right:1px solid #e2eaf1;border-bottom:1px solid #e2eaf1;">
+                      <div style="font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#7b8fa1;font-weight:700;">Sender</div>
+                      <div style="margin-top:7px;font-size:15px;color:#102033;font-weight:700;">{{name}}</div>
+                    </td>
+                    <td width="50%" valign="top" style="padding:18px 20px;border-bottom:1px solid #e2eaf1;">
+                      <div style="font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#7b8fa1;font-weight:700;">Phone</div>
+                      <div style="margin-top:7px;font-size:14px;color:#102033;">{{phone}}</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" style="padding:18px 20px;">
+                      <div style="font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#7b8fa1;font-weight:700;">Email</div>
+                      <div style="margin-top:7px;font-size:14px;"><a href="mailto:{{email}}" style="color:#0b78c4;text-decoration:none;font-weight:700;">{{email}}</a></div>
+                    </td>
+                  </tr>
+                </table>
+
+                <div style="margin-top:22px;">
+                  <div style="margin-bottom:9px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#6f8497;font-weight:700;">Message</div>
+                  <div style="padding:20px 20px;background:#f7f9fb;border-left:4px solid #149cff;border-radius:0 14px 14px 0;font-size:14px;line-height:1.75;color:#3e5569;white-space:pre-line;">{{message}}</div>
+                </div>
+
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:26px;">
+                  <tr>
+                    <td style="border-radius:12px;background:#149cff;">
+                      <a href="{{replyUrl}}" style="display:inline-block;padding:14px 20px;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;">Reply to {{name}}</a>
+                    </td>
+                    <td width="12"></td>
+                    <td style="border-radius:12px;background:#071a2e;">
+                      <a href="{{adminUrl}}" style="display:inline-block;padding:14px 20px;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;">Open communications console</a>
+                    </td>
+                  </tr>
+                </table>
+
+                <div style="margin-top:24px;padding:15px 17px;border:1px solid #e2eaf1;border-radius:12px;background:#fbfcfd;font-size:11px;line-height:1.65;color:#708598;">
+                  Delivery record: the sender confirmation and this administrator notification are tracked independently in MongoDB. Open the console to view status or resend either message.
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:18px 32px;background:#071a2e;font-size:11px;line-height:1.65;color:#8da7bd;">
+                Private operational notification from ecaturonald.tech · Submission ID {{submissionId}} · © {{year}} Ecatu Ronald.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
     </table>
   </body>
 </html>
