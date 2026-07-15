@@ -121,6 +121,12 @@ export default function NexusSystems() {
                     Enter the complete electrical systems field <Icon name="arrow" />
                   </Link>
                 ) : null}
+
+                {meta.key === 'engine' ? (
+                  <Link className="nx-btn nx-btn-primary" to="/automotive-systems">
+                    Enter the complete automotive systems field <Icon name="arrow" />
+                  </Link>
+                ) : null}
               </motion.div>
             </AnimatePresence>
           </div>
