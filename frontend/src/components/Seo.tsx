@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 type JsonLd = Record<string, unknown> | Array<Record<string, unknown>>;
+type OpenGraphType = 'website' | 'profile' | 'article';
 
 interface SeoProps {
   title: string;
@@ -8,6 +9,7 @@ interface SeoProps {
   canonicalPath: string;
   image?: string;
   jsonLd?: JsonLd;
+  ogType?: OpenGraphType;
 }
 
 const HOME_TITLE = 'Ecatu Ronald | Electrical & Automotive Systems Engineer';
@@ -53,6 +55,7 @@ export default function Seo({
   canonicalPath,
   image = '/images/og-portfolio.jpg',
   jsonLd,
+  ogType = 'profile',
 }: SeoProps) {
   useEffect(() => {
     const canonicalUrl = `${SITE_URL}${canonicalPath}`;
@@ -64,7 +67,7 @@ export default function Seo({
     upsertMeta('name', 'author', 'Ecatu Ronald');
     upsertMeta('name', 'robots', 'index, follow, max-image-preview:large');
 
-    upsertMeta('property', 'og:type', 'profile');
+    upsertMeta('property', 'og:type', ogType);
     upsertMeta('property', 'og:title', title);
     upsertMeta('property', 'og:description', description);
     upsertMeta('property', 'og:url', canonicalUrl);
@@ -101,7 +104,7 @@ export default function Seo({
 
       setCanonical(`${SITE_URL}/`);
     };
-  }, [canonicalPath, description, image, jsonLd, title]);
+  }, [canonicalPath, description, image, jsonLd, ogType, title]);
 
   return null;
 }

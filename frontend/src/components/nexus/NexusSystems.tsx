@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/Icon';
 import { capabilities, disciplines } from '@/data/portfolio';
 
@@ -106,7 +107,7 @@ export default function NexusSystems() {
                 <div className="nx-atlas-details">
                   <div>
                     <small>CAPABILITY SET</small>
-                    <ul>{discipline.skills.map((skill) => <li key={skill}><Icon name="check" />{skill}</li>)}</ul>
+                    <ul>{discipline.skills.map((skill: string) => <li key={skill}><Icon name="check" />{skill}</li>)}</ul>
                   </div>
                   <div className="nx-system-standard">
                     <small>SYSTEM STANDARD</small>
@@ -114,6 +115,12 @@ export default function NexusSystems() {
                     <span>{meta.metric}</span>
                   </div>
                 </div>
+
+                {meta.key === 'electrical' ? (
+                  <Link className="nx-btn nx-btn-primary" to="/electrical-systems">
+                    Enter the complete electrical systems field <Icon name="arrow" />
+                  </Link>
+                ) : null}
               </motion.div>
             </AnimatePresence>
           </div>
