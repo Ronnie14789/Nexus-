@@ -1,7 +1,7 @@
 {
   "name": "ecatu-ronald-portfolio",
   "version": "8.0.0",
-  "description": "Ecatu Ronald \u2014 Electrical & Automotive Systems Engineer full-stack portfolio",
+  "description": "Ecatu Ronald — Electrical & Automotive Systems Engineer full-stack portfolio",
   "private": true,
   "scripts": {
     "setup": "npm install --prefix frontend && npm install --prefix backend",
@@ -22,7 +22,9 @@
     "docker:prod": "docker compose up --build",
     "docker:down": "docker compose down",
     "verify": "npm run lint && npm run build:full",
-    "start": "node scripts/start-production.mjs"
+    "start": "node scripts/start-production.mjs",
+    "test:smoke": "node scripts/production-smoke-test.mjs",
+    "quality:gate": "npm run verify && node scripts/prepare-deploy.mjs && npm run test:smoke"
   },
   "devDependencies": {
     "concurrently": "^10.0.3",
