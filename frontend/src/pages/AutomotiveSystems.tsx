@@ -1011,6 +1011,9 @@ export default function AutomotiveSystems() {
                 <Link className="as-btn as-btn-ghost" to="/electrical-systems">
                   Electrical Systems <Icon name="electrical" />
                 </Link>
+                <Link className="as-btn as-btn-ghost" to="/digital-systems">
+                  Digital Systems <Icon name="code" />
+                </Link>
                 <Link className="as-btn as-btn-ghost" to="/about">
                   Professional profile <Icon name="external" />
                 </Link>

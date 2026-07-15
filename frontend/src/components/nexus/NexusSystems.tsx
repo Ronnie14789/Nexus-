@@ -127,6 +127,12 @@ export default function NexusSystems() {
                     Enter the complete automotive systems field <Icon name="arrow" />
                   </Link>
                 ) : null}
+
+                {meta.key === 'code' ? (
+                  <Link className="nx-btn nx-btn-primary" to="/digital-systems">
+                    Enter the complete digital systems field <Icon name="arrow" />
+                  </Link>
+                ) : null}
               </motion.div>
             </AnimatePresence>
           </div>

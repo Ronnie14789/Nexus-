@@ -9,13 +9,14 @@ const commands = [
   { key: '02', label: 'Systems atlas', detail: 'Power, motion and intelligence', href: '#systems' },
   { key: '03', label: 'Electrical systems', detail: 'Power, protection, control and diagnostics', href: '/electrical-systems' },
   { key: '04', label: 'Automotive systems', detail: 'Powertrain, chassis, control and root-cause diagnostics', href: '/automotive-systems' },
-  { key: '05', label: 'Experience', detail: 'Roles and responsibilities', href: '#experience' },
-  { key: '06', label: 'Education', detail: 'Uganda and India', href: '#education' },
-  { key: '07', label: 'Journey', detail: 'Uganda → India → Uganda', href: '#journey' },
-  { key: '08', label: 'Selected work', detail: 'Case studies and systems', href: '#work' },
-  { key: '09', label: 'Training archive', detail: 'SkillPro visual record', href: '#gallery' },
-  { key: '10', label: 'Contact', detail: 'First-party secure contact form', href: '#contact' },
-  { key: '11', label: 'About Ecatu Ronald', detail: 'Professional identity and verified profiles', href: '/about' },
+  { key: '05', label: 'Digital systems', detail: 'Architecture, data, cloud, security and operations', href: '/digital-systems' },
+  { key: '06', label: 'Experience', detail: 'Roles and responsibilities', href: '#experience' },
+  { key: '07', label: 'Education', detail: 'Uganda and India', href: '#education' },
+  { key: '08', label: 'Journey', detail: 'Uganda → India → Uganda', href: '#journey' },
+  { key: '09', label: 'Selected work', detail: 'Case studies and systems', href: '#work' },
+  { key: '10', label: 'Training archive', detail: 'SkillPro visual record', href: '#gallery' },
+  { key: '11', label: 'Contact', detail: 'First-party secure contact form', href: '#contact' },
+  { key: '12', label: 'About Ecatu Ronald', detail: 'Professional identity and verified profiles', href: '/about' },
 ];
 
 export default function CommandPalette() {

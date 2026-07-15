@@ -11,13 +11,18 @@
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://ecaturonald.tech/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://ecaturonald.tech/automotive-systems</loc>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://ecaturonald.tech/digital-systems</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://ecaturonald.tech/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
