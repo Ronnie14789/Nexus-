@@ -724,6 +724,7 @@ export default function ElectricalSystems() {
               </p>
               <div className="es-closing-actions">
                 <a className="es-btn es-btn-primary" href="/#contact">Discuss an electrical system <Icon name="arrow" /></a>
+                <Link className="es-btn es-btn-ghost" to="/automotive-systems">Automotive Systems <Icon name="engine" /></Link>
                 <Link className="es-btn es-btn-ghost" to="/about">Professional profile <Icon name="external" /></Link>
               </div>
               <small>Electrical Systems · Nexus Field Systems · Ecatu Ronald</small>

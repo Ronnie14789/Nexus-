@@ -12,6 +12,7 @@ import { initSentry } from '@/lib/sentry';
 const Home = lazy(() => import('@/pages/Home'));
 const About = lazy(() => import('@/pages/About'));
 const ElectricalSystems = lazy(() => import('@/pages/ElectricalSystems'));
+const AutomotiveSystems = lazy(() => import('@/pages/AutomotiveSystems'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 const AdminLogin = lazy(() => import('@/pages/admin/AdminLogin'));
 const AdminLayout = lazy(() => import('@/pages/admin/AdminLayout'));
@@ -64,6 +65,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/electrical-systems" element={<ElectricalSystems />} />
+            <Route path="/automotive-systems" element={<AutomotiveSystems />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />

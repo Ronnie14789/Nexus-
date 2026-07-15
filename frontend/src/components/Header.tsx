@@ -17,7 +17,8 @@ const navLinks = [
 
 const publicPages = [
   { to: '/electrical-systems', label: 'Electrical', no: '08' },
-  { to: '/about', label: 'About', no: '09' },
+  { to: '/automotive-systems', label: 'Automotive', no: '09' },
+  { to: '/about', label: 'About', no: '10' },
 ];
 
 export default function Header() {
