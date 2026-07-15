@@ -15,6 +15,11 @@ const navLinks = [
   { href: '#contact', label: 'Contact', no: '07' },
 ];
 
+const publicPages = [
+  { to: '/electrical-systems', label: 'Electrical', no: '08' },
+  { to: '/about', label: 'About', no: '09' },
+];
+
 export default function Header() {
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
@@ -91,14 +96,13 @@ export default function Header() {
               </li>
             );
           })}
-          <li>
-            <Link
-              to="/about"
-              className={location.pathname === '/about' ? 'active' : ''}
-            >
-              <span>08</span>About
-            </Link>
-          </li>
+          {publicPages.map((page) => (
+            <li key={page.to}>
+              <Link to={page.to} className={location.pathname === page.to ? 'active' : ''}>
+                <span>{page.no}</span>{page.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <div className="nx-nav-actions">
@@ -147,17 +151,20 @@ export default function Header() {
                   </motion.li>
                 );
               })}
-              <motion.li
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.045 }}
-              >
-                <Link to="/about" onClick={() => setMenuOpen(false)}>
-                  <span>08</span>
-                  <strong>About</strong>
-                  <Icon name="arrow" />
-                </Link>
-              </motion.li>
+              {publicPages.map((page, index) => (
+                <motion.li
+                  key={page.to}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: (navLinks.length + index) * 0.045 }}
+                >
+                  <Link to={page.to} onClick={() => setMenuOpen(false)}>
+                    <span>{page.no}</span>
+                    <strong>{page.label}</strong>
+                    <Icon name="arrow" />
+                  </Link>
+                </motion.li>
+              ))}
             </ul>
             <div className="nx-mobile-menu-footer">
               <p>{siteConfig.role}</p>
