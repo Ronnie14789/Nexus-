@@ -14,6 +14,7 @@ const About = lazy(() => import('@/pages/About'));
 const ElectricalSystems = lazy(() => import('@/pages/ElectricalSystems'));
 const AutomotiveSystems = lazy(() => import('@/pages/AutomotiveSystems'));
 const DigitalSystems = lazy(() => import('@/pages/DigitalSystems'));
+const ExecutiveIntelligence = lazy(() => import('@/pages/ExecutiveIntelligence'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 const AdminLogin = lazy(() => import('@/pages/admin/AdminLogin'));
 const AdminLayout = lazy(() => import('@/pages/admin/AdminLayout'));
@@ -68,6 +69,7 @@ export default function App() {
             <Route path="/electrical-systems" element={<ElectricalSystems />} />
             <Route path="/automotive-systems" element={<AutomotiveSystems />} />
             <Route path="/digital-systems" element={<DigitalSystems />} />
+            <Route path="/executive-intelligence" element={<ExecutiveIntelligence />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />

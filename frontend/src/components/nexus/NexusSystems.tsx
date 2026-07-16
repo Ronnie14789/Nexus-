@@ -53,6 +53,16 @@ export default function NexusSystems() {
           </p>
         </div>
 
+        <Link className="nx-executive-gateway" to="/executive-intelligence">
+          <span>NX / 00</span>
+          <div>
+            <small>COMMAND LAYER</small>
+            <strong>Executive Intelligence</strong>
+            <p>Unify platform status, global command, system priorities and the roadmap for the next Nexus products.</p>
+          </div>
+          <Icon name="arrow" />
+        </Link>
+
         <div className="nx-atlas">
           <div className="nx-atlas-nav" role="tablist" aria-label="Engineering systems">
             {disciplines.map((item, index) => (
