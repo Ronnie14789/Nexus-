@@ -702,3 +702,20 @@ body { background: var(--nx-paper); color: var(--nx-ink); font-family: var(--nx-
   .nx-executive-gateway { grid-template-columns: 54px 1fr; gap: 16px; padding: 20px; }
   .nx-executive-gateway > svg { display: none; }
 }
+
+/* Knowledge Vault gateway ==================================================== */
+.nx-knowledge-gateway {
+  margin-top: 12px;
+  border-color: rgba(200,255,85,.18);
+  background:
+    linear-gradient(135deg, rgba(200,255,85,.07), transparent 38%),
+    rgba(7,17,27,.78);
+}
+.nx-knowledge-gateway > span,
+.nx-knowledge-gateway small { color: var(--nx-lime); }
+.nx-knowledge-gateway:hover { border-color: rgba(200,255,85,.42); }
+[data-theme="light"] .nx-knowledge-gateway {
+  background:
+    linear-gradient(135deg, rgba(139,190,31,.1), transparent 38%),
+    rgba(255,255,255,.84);
+}

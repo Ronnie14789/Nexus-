@@ -147,10 +147,11 @@ export const executiveDomains: ExecutiveDomain[] = [
     code: 'KNO',
     name: 'Knowledge Vault',
     role: 'Engineering procedures, cases and cross-reference',
-    state: 'planned',
-    health: 35,
+    state: 'ready',
+    route: '/knowledge-vault',
+    health: 96.4,
     description:
-      'A structured engineering knowledge layer for procedures, field cases, specifications, diagrams, lessons and reusable evidence.',
+      'A live, searchable engineering knowledge layer for procedures, field cases, diagnostics, standards, evidence sources and verification rules.',
     principle: 'Knowledge becomes valuable when it is searchable, traceable and reusable.',
     signalPath: ['Capture', 'Classify', 'Verify', 'Link', 'Retrieve', 'Improve'],
     capabilities: [
@@ -240,10 +241,11 @@ export const executiveActions: ExecutiveAction[] = [
   {
     id: 'knowledge-search',
     label: 'Search Knowledge Vault',
-    detail: 'Find procedures, cases, specifications and field lessons.',
-    command: 'search knowledge',
+    detail: 'Find procedures, cases, diagnostics, standards and field lessons.',
+    command: 'open knowledge',
+    route: '/knowledge-vault',
     domain: 'knowledge',
-    status: 'planned',
+    status: 'available',
   },
   {
     id: 'operations-overview',
@@ -277,10 +279,10 @@ export const intelligenceQueue: IntelligenceItem[] = [
   {
     id: 'queue-knowledge',
     priority: 'medium',
-    title: 'Create the engineering knowledge schema',
-    detail: 'Structure procedures, field cases, specifications, evidence and cross-domain relationships.',
+    title: 'Operate the engineering knowledge schema',
+    detail: 'Maintain procedures, field cases, diagnostics, evidence labels and cross-domain relationships as a trusted public knowledge system.',
     owner: 'Knowledge vault',
-    state: 'Planned',
+    state: 'Operational',
     domain: 'knowledge',
   },
   {
@@ -305,14 +307,14 @@ export const roadmapModules: RoadmapModule[] = [
   {
     phase: 'PHASE 02',
     title: 'Engineering Knowledge Vault',
-    status: 'next',
+    status: 'active',
     outcome: 'A searchable and traceable knowledge system for procedures, cases and engineering evidence.',
     capabilities: ['Knowledge graph', 'Search', 'Cross-reference', 'Evidence archive'],
   },
   {
     phase: 'PHASE 03',
     title: 'AI Diagnostics',
-    status: 'planned',
+    status: 'next',
     outcome: 'Guided fault analysis that ranks causes, recommends tests and generates technical reports.',
     capabilities: ['Symptom capture', 'Reasoning model', 'Test plans', 'Report generation'],
   },
@@ -344,6 +346,7 @@ export const commandHelp = [
   'open electrical — enter Electrical Systems',
   'open automotive — enter Automotive Systems',
   'open digital — enter Digital Systems',
+  'open knowledge — enter the Engineering Knowledge Vault',
   'brief — generate the executive platform brief',
   'roadmap — move to the strategic roadmap',
   'clear — clear terminal history',
