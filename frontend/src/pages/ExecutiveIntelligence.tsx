@@ -77,6 +77,7 @@ const publicRoutes = [
   '/automotive-systems',
   '/digital-systems',
   '/executive-intelligence',
+  '/knowledge-vault',
 ];
 
 const toneValues: Record<ExecutiveDomain['tone'], string> = {
@@ -312,6 +313,9 @@ export default function ExecutiveIntelligence() {
       automotive: '/automotive-systems',
       'open digital': '/digital-systems',
       digital: '/digital-systems',
+      'open knowledge': '/knowledge-vault',
+      knowledge: '/knowledge-vault',
+      vault: '/knowledge-vault',
       home: '/',
     };
 
@@ -321,7 +325,7 @@ export default function ExecutiveIntelligence() {
       return;
     }
 
-    if (command === 'diagnose' || command.includes('knowledge') || command.includes('operations')) {
+    if (command === 'diagnose' || command.includes('operations')) {
       addTerminalLine(
         'system',
         'That module is mapped in the roadmap but is not presented as a live production capability yet.',

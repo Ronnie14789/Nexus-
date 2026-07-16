@@ -63,6 +63,16 @@ export default function NexusSystems() {
           <Icon name="arrow" />
         </Link>
 
+        <Link className="nx-executive-gateway nx-knowledge-gateway" to="/knowledge-vault">
+          <span>NX / 01</span>
+          <div>
+            <small>KNOWLEDGE LAYER</small>
+            <strong>Engineering Knowledge Vault</strong>
+            <p>Search evidence-led diagnostics, procedures, field cases, reporting standards and workshop verification knowledge.</p>
+          </div>
+          <Icon name="arrow" />
+        </Link>
+
         <div className="nx-atlas">
           <div className="nx-atlas-nav" role="tablist" aria-label="Engineering systems">
             {disciplines.map((item, index) => (
