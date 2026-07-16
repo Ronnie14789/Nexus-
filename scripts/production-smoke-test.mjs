@@ -11,6 +11,7 @@ const routes = [
   '/electrical-systems',
   '/automotive-systems',
   '/digital-systems',
+  '/executive-intelligence',
   '/robots.txt',
   '/sitemap.xml',
   '/api/health',
@@ -177,6 +178,7 @@ try {
     'https://ecaturonald.tech/electrical-systems',
     'https://ecaturonald.tech/automotive-systems',
     'https://ecaturonald.tech/digital-systems',
+    'https://ecaturonald.tech/executive-intelligence',
   ];
 
   for (const url of requiredSitemapUrls) {

@@ -16,10 +16,11 @@ const navLinks = [
 ];
 
 const publicPages = [
-  { to: '/electrical-systems', label: 'Electrical', no: '08' },
-  { to: '/automotive-systems', label: 'Automotive', no: '09' },
-  { to: '/digital-systems', label: 'Digital', no: '10' },
-  { to: '/about', label: 'About', no: '11' },
+  { to: '/executive-intelligence', label: 'Executive', no: '08' },
+  { to: '/electrical-systems', label: 'Electrical', no: '09' },
+  { to: '/automotive-systems', label: 'Automotive', no: '10' },
+  { to: '/digital-systems', label: 'Digital', no: '11' },
+  { to: '/about', label: 'About', no: '12' },
 ];
 
 export default function Header() {

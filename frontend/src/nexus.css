@@ -669,3 +669,36 @@ body { background: var(--nx-paper); color: var(--nx-ink); font-family: var(--nx-
 @media (prefers-reduced-motion: reduce) {
   .nx-btn, .nx-gallery-item img { transition: none; }
 }
+
+/* Executive Intelligence gateway ========================================== */
+.nx-executive-gateway {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 72px 1fr 32px;
+  gap: 24px;
+  align-items: center;
+  margin: -24px 0 34px;
+  padding: 24px 28px;
+  border: 1px solid rgba(107,230,255,.2);
+  border-radius: 18px;
+  color: #eff9ff;
+  background: linear-gradient(125deg, rgba(40,104,255,.14), rgba(107,230,255,.035));
+  text-decoration: none;
+  box-shadow: 0 24px 80px rgba(0,0,0,.18);
+  transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+.nx-executive-gateway:hover {
+  transform: translateY(-3px);
+  border-color: rgba(107,230,255,.38);
+  background: linear-gradient(125deg, rgba(40,104,255,.2), rgba(107,230,255,.06));
+}
+.nx-executive-gateway > span { color: var(--nx-cyan); font: 700 .52rem var(--nx-mono); letter-spacing: .1em; }
+.nx-executive-gateway small { display: block; color: #6f8aa0; font: 700 .47rem var(--nx-mono); letter-spacing: .12em; }
+.nx-executive-gateway strong { display: block; margin-top: 7px; font: 560 1.45rem var(--nx-display); }
+.nx-executive-gateway p { max-width: 850px; margin: 8px 0 0; color: #91a7b9; font-size: .7rem; line-height: 1.55; }
+.nx-executive-gateway > svg { width: 24px; color: var(--nx-cyan); }
+@media (max-width: 700px) {
+  .nx-executive-gateway { grid-template-columns: 54px 1fr; gap: 16px; padding: 20px; }
+  .nx-executive-gateway > svg { display: none; }
+}
