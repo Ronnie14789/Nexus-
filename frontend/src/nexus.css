@@ -719,3 +719,9 @@ body { background: var(--nx-paper); color: var(--nx-ink); font-family: var(--nx-
     linear-gradient(135deg, rgba(139,190,31,.1), transparent 38%),
     rgba(255,255,255,.84);
 }
+
+/* AI Diagnostics gateway */
+.nx-diagnostics-gateway{margin-top:12px;border-color:rgba(105,228,255,.22);background:linear-gradient(135deg,rgba(105,228,255,.08),transparent 38%),rgba(7,17,27,.8)}
+.nx-diagnostics-gateway>span,.nx-diagnostics-gateway small{color:var(--nx-cyan)}
+.nx-diagnostics-gateway:hover{border-color:rgba(105,228,255,.48)}
+[data-theme="light"] .nx-diagnostics-gateway{background:linear-gradient(135deg,rgba(40,104,255,.09),transparent 38%),rgba(255,255,255,.86)}
