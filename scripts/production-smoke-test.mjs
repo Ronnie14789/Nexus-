@@ -13,6 +13,7 @@ const routes = [
   '/digital-systems',
   '/executive-intelligence',
   '/knowledge-vault',
+  '/ai-diagnostics',
   '/robots.txt',
   '/sitemap.xml',
   '/api/health',
@@ -181,6 +182,7 @@ try {
     'https://ecaturonald.tech/digital-systems',
     'https://ecaturonald.tech/executive-intelligence',
     'https://ecaturonald.tech/knowledge-vault',
+    'https://ecaturonald.tech/ai-diagnostics',
   ];
 
   for (const url of requiredSitemapUrls) {

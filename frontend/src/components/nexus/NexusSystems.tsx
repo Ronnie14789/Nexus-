@@ -72,6 +72,15 @@ export default function NexusSystems() {
           </div>
           <Icon name="arrow" />
         </Link>
+        <Link className="nx-executive-gateway nx-diagnostics-gateway" to="/ai-diagnostics">
+          <span>NX / 02</span>
+          <div>
+            <small>REASONING LAYER</small>
+            <strong>AI Diagnostics</strong>
+            <p>Transform complaints and confirmed evidence into ranked causes, test plans, verification steps and technical assessments.</p>
+          </div>
+          <Icon name="arrow" />
+        </Link>
 
         <div className="nx-atlas">
           <div className="nx-atlas-nav" role="tablist" aria-label="Engineering systems">
