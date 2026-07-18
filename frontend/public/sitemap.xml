@@ -36,7 +36,12 @@
     <priority>0.97</priority>
   </url>
   <url>
-    <loc>https://ecaturonald.tech/ai-diagnostics</loc>
+    <loc>https://ecaturonald.tech/automotive-systems/intelligence</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.99</priority>
+  </url>
+  <url>
+    <loc>https://ecaturonald.tech/automotive-systems/diagnostics</loc>
     <changefreq>weekly</changefreq>
     <priority>0.98</priority>
   </url>

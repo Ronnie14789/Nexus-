@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, type ReactNode } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import AppErrorBoundary from '@/components/AppErrorBoundary';
 import Header from '@/components/Header';
@@ -17,6 +17,7 @@ const DigitalSystems = lazy(() => import('@/pages/DigitalSystems'));
 const ExecutiveIntelligence = lazy(() => import('@/pages/ExecutiveIntelligence'));
 const KnowledgeVault = lazy(() => import('@/pages/KnowledgeVault'));
 const AIDiagnostics = lazy(() => import('@/pages/AIDiagnostics'));
+const AutomotiveIntelligence = lazy(() => import('@/pages/AutomotiveIntelligence'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 const AdminLogin = lazy(() => import('@/pages/admin/AdminLogin'));
 const AdminLayout = lazy(() => import('@/pages/admin/AdminLayout'));
@@ -70,10 +71,12 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/electrical-systems" element={<ElectricalSystems />} />
             <Route path="/automotive-systems" element={<AutomotiveSystems />} />
+            <Route path="/automotive-systems/intelligence" element={<AutomotiveIntelligence />} />
+            <Route path="/automotive-systems/diagnostics" element={<AIDiagnostics />} />
             <Route path="/digital-systems" element={<DigitalSystems />} />
             <Route path="/executive-intelligence" element={<ExecutiveIntelligence />} />
             <Route path="/knowledge-vault" element={<KnowledgeVault />} />
-            <Route path="/ai-diagnostics" element={<AIDiagnostics />} />
+            <Route path="/ai-diagnostics" element={<Navigate to="/automotive-systems/diagnostics" replace />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />

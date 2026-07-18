@@ -10,6 +10,8 @@ const routes = [
   '/about',
   '/electrical-systems',
   '/automotive-systems',
+  '/automotive-systems/intelligence',
+  '/automotive-systems/diagnostics',
   '/digital-systems',
   '/executive-intelligence',
   '/knowledge-vault',
@@ -179,10 +181,11 @@ try {
     'https://ecaturonald.tech/about',
     'https://ecaturonald.tech/electrical-systems',
     'https://ecaturonald.tech/automotive-systems',
+    'https://ecaturonald.tech/automotive-systems/intelligence',
+    'https://ecaturonald.tech/automotive-systems/diagnostics',
     'https://ecaturonald.tech/digital-systems',
     'https://ecaturonald.tech/executive-intelligence',
     'https://ecaturonald.tech/knowledge-vault',
-    'https://ecaturonald.tech/ai-diagnostics',
   ];
 
   for (const url of requiredSitemapUrls) {

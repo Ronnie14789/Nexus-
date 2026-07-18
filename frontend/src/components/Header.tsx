@@ -17,12 +17,10 @@ const navLinks = [
 
 const publicPages = [
   { to: '/executive-intelligence', label: 'Executive', no: '08' },
-  { to: '/ai-diagnostics', label: 'Diagnostics', no: '09' },
-  { to: '/knowledge-vault', label: 'Vault', no: '10' },
-  { to: '/electrical-systems', label: 'Electrical', no: '11' },
-  { to: '/automotive-systems', label: 'Automotive', no: '12' },
-  { to: '/digital-systems', label: 'Digital', no: '13' },
-  { to: '/about', label: 'About', no: '14' },
+  { to: '/electrical-systems', label: 'Electrical', no: '09' },
+  { to: '/automotive-systems', label: 'Automotive', no: '10' },
+  { to: '/digital-systems', label: 'Digital', no: '11' },
+  { to: '/about', label: 'About', no: '12' },
 ];
 
 export default function Header() {
@@ -71,6 +69,9 @@ export default function Header() {
   if (location.pathname.startsWith('/admin')) return null;
 
   const openCommand = () => window.dispatchEvent(new Event('portfolio:command'));
+  const pageActive = (to: string) =>
+    location.pathname === to ||
+    (to === '/automotive-systems' && location.pathname.startsWith('/automotive-systems/'));
 
   return (
     <header className={`nx-header ${scrolled ? 'is-scrolled' : ''}`}>
@@ -103,7 +104,7 @@ export default function Header() {
           })}
           {publicPages.map((page) => (
             <li key={page.to}>
-              <Link to={page.to} className={location.pathname === page.to ? 'active' : ''}>
+              <Link to={page.to} className={pageActive(page.to) ? 'active' : ''}>
                 <span>{page.no}</span>{page.label}
               </Link>
             </li>

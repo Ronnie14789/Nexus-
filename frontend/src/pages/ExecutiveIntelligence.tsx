@@ -78,7 +78,8 @@ const publicRoutes = [
   '/digital-systems',
   '/executive-intelligence',
   '/knowledge-vault',
-  '/ai-diagnostics',
+  '/automotive-systems/intelligence',
+  '/automotive-systems/diagnostics',
 ];
 
 const toneValues: Record<ExecutiveDomain['tone'], string> = {
@@ -317,9 +318,10 @@ export default function ExecutiveIntelligence() {
       'open knowledge': '/knowledge-vault',
       knowledge: '/knowledge-vault',
       vault: '/knowledge-vault',
-      'open diagnostics': '/ai-diagnostics',
-      diagnostics: '/ai-diagnostics',
-      diagnose: '/ai-diagnostics',
+      'open diagnostics': '/automotive-systems/diagnostics',
+      diagnostics: '/automotive-systems/diagnostics',
+      diagnose: '/automotive-systems/diagnostics',
+      'open automotive intelligence': '/automotive-systems/intelligence',
       home: '/',
     };
 

@@ -1,19 +1,19 @@
 import type { Cause, DiagnosticModel, Severity } from '@/data/aiDiagnostics';
 
+export type EvidenceSupport = 'strong' | 'moderate' | 'limited' | 'insufficient';
+
 export interface DiagnosticInput {
   complaint: string;
   evidence: string[];
   severity: Severity;
   notes: string;
 }
-
 export interface RankedCause extends Cause {
   score: number;
-  confidence: number;
+  support: EvidenceSupport;
   matched: string[];
   contradicted: string[];
 }
-
 export interface DiagnosticResult {
   model: DiagnosticModel;
   causes: RankedCause[];
@@ -28,6 +28,27 @@ const severityAdjustment: Record<Severity, number> = {
   high: 4,
   critical: 6,
 };
+
+export const evidenceSupportLabels: Record<EvidenceSupport, string> = {
+  strong: 'Strong evidence support',
+  moderate: 'Moderate evidence support',
+  limited: 'Limited evidence support',
+  insufficient: 'Insufficient evidence',
+};
+export const evidenceSupportWidths: Record<EvidenceSupport, number> = {
+  strong: 100,
+  moderate: 70,
+  limited: 42,
+  insufficient: 18,
+};
+
+function classifySupport(matched: number, contradicted: number, possible: number): EvidenceSupport {
+  const coverage = possible > 0 ? matched / possible : 0;
+  if (matched >= 3 && coverage >= 0.6 && contradicted === 0) return 'strong';
+  if (matched >= 2 && contradicted <= 1) return 'moderate';
+  if (matched >= 1) return 'limited';
+  return 'insufficient';
+}
 
 export function analyzeDiagnostic(model: DiagnosticModel, input: DiagnosticInput): DiagnosticResult {
   const selected = new Set(input.evidence);
@@ -46,17 +67,17 @@ export function analyzeDiagnostic(model: DiagnosticModel, input: DiagnosticInput
         1,
         cause.baseScore + supportScore - contradictionPenalty + severityAdjustment[input.severity],
       );
-      return { ...cause, score, confidence: 0, matched, contradicted };
+      return {
+        ...cause,
+        score,
+        support: classifySupport(matched.length, contradicted.length, cause.supports.length),
+        matched,
+        contradicted,
+      };
     })
     .sort((left, right) => right.score - left.score);
 
-  const total = causes.reduce((sum, cause) => sum + cause.score, 0) || 1;
-  const ranked = causes.map((cause) => ({
-    ...cause,
-    confidence: Math.round((cause.score / total) * 100),
-  }));
-
-  const referenced = new Set(ranked.slice(0, 2).flatMap((cause) => cause.supports));
+  const referenced = new Set(causes.slice(0, 2).flatMap((cause) => cause.supports));
   const missingEvidence = model.evidence
     .filter((item) => referenced.has(item.id) && !selected.has(item.id))
     .map((item) => item.label)
@@ -64,37 +85,43 @@ export function analyzeDiagnostic(model: DiagnosticModel, input: DiagnosticInput
 
   return {
     model,
-    causes: ranked,
+    causes,
     missingEvidence,
     generatedAt: new Date().toISOString(),
     disclaimer:
-      'Decision-support result only. Confirm measurements, specifications, safety procedures and physical inspection before repair or parts replacement.',
+      'Decision-support result only. Evidence support is not a statistical failure probability. Confirm measurements, application-specific specifications, safety procedures and physical inspection before repair or parts replacement.',
   };
 }
 
 export function createDiagnosticReport(input: DiagnosticInput, result: DiagnosticResult) {
   const primary = result.causes[0];
   return [
-    'NEXUS AI DIAGNOSTICS — TECHNICAL ASSESSMENT',
+    'NEXUS AUTOMOTIVE INTELLIGENCE — DIAGNOSTIC ASSESSMENT',
     '',
     `Complaint: ${input.complaint || result.model.title}`,
     `System: ${result.model.title}`,
     `Severity: ${input.severity.toUpperCase()}`,
+    `Evidence support: ${evidenceSupportLabels[primary.support]}`,
     '',
     'PRELIMINARY FINDING',
-    `${primary.title} is the highest-ranked cause at ${primary.confidence}% relative confidence.`,
+    `${primary.title} is the highest-ranked hypothesis for the currently selected evidence.`,
     primary.mechanism,
+    '',
+    'CONFIRMED SUPPORTING EVIDENCE',
+    ...(primary.matched.length
+      ? primary.matched.map((id) => `- ${result.model.evidence.find((item) => item.id === id)?.label ?? id}`)
+      : ['- No confirming evidence has been selected.']),
     '',
     'RECOMMENDED TEST PLAN',
     ...primary.tests.map((test, index) => `${index + 1}. ${test}`),
     '',
-    'ALTERNATIVE CAUSES',
-    ...result.causes.slice(1).map((cause) => `- ${cause.title}: ${cause.confidence}%`),
+    'ALTERNATIVE HYPOTHESES',
+    ...result.causes.slice(1).map((cause) => `- ${cause.title}: ${evidenceSupportLabels[cause.support]}`),
     '',
     'REPAIR VERIFICATION',
     ...primary.verification.map((item) => `- ${item}`),
     '',
-    `Knowledge references: ${primary.knowledgeRefs.join(', ')}`,
+    `Service-intelligence references: ${primary.knowledgeRefs.join(', ')}`,
     '',
     result.disclaimer,
   ].join('\n');
