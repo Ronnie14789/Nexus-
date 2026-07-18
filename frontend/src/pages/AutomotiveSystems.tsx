@@ -3,6 +3,7 @@ import { useMemo, useState, type ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
 import NexusFooter from '@/components/nexus/NexusFooter';
+import AutomotiveHubNav from '@/components/automotive/AutomotiveHubNav';
 import Icon from '@/components/ui/Icon';
 import { siteConfig } from '@/data/portfolio';
 import {
@@ -335,9 +336,9 @@ export default function AutomotiveSystems() {
                   <a className="as-btn as-btn-primary" href="#architecture">
                     Enter vehicle architecture <Icon name="arrow" />
                   </a>
-                  <a className="as-btn as-btn-ghost" href="#diagnostics">
-                    Open diagnostic command <Icon name="diagnostics" />
-                  </a>
+                  <Link className="as-btn as-btn-ghost" to="/automotive-systems/intelligence">
+                    Open Automotive Intelligence <Icon name="diagnostics" />
+                  </Link>
                 </div>
 
                 <dl className="as-hero-metrics" aria-label="Automotive systems coverage">
@@ -376,6 +377,8 @@ export default function AutomotiveSystems() {
             </div>
           </div>
         </section>
+
+        <AutomotiveHubNav />
 
         <section
           id="architecture"
