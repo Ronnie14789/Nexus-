@@ -286,7 +286,7 @@ class EmailService {
   }): Promise<EmailResult> {
     return this.sendEmail({
       to: data.email,
-      subject: "You're subscribed to Ecatu Ronald's newsletter!",
+      subject: 'Subscription confirmed · Ecatu Ronald engineering field notes',
       templateName: 'newsletter-subscription',
       templateData: {
         name: data.name || 'Subscriber',
@@ -306,7 +306,7 @@ class EmailService {
       data.subscribers.map((subscriber) =>
         this.sendEmail({
           to: subscriber.email,
-          subject: `New Post: ${data.post.title}`,
+          subject: `New publication · ${data.post.title}`,
           templateName: 'blog-notification',
           templateData: {
             name: subscriber.name || 'Reader',
