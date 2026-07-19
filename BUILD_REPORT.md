@@ -1,6 +1,6 @@
 # Nexus Field Systems Edition — Build and Verification Report
 
-Final verification was completed after the Nexus visual reconstruction, responsive refinements and first-party server integration checks.
+Final verification was completed on 19 July 2026 after the evidence-first content upgrade, responsive disclosure integration and first-party server checks.
 
 ## Passed source checks
 
@@ -9,6 +9,7 @@ Final verification was completed after the Nexus visual reconstruction, responsi
 - Backend TypeScript production compilation.
 - Frontend Vite production build.
 - Root `npm run verify` workflow.
+- Evidence disclosure TypeScript integration across all public routes.
 
 ## Passed runtime checks
 
@@ -19,6 +20,8 @@ Final verification was completed after the Nexus visual reconstruction, responsi
 - Invalid contact validation behaviour retained.
 - Local JSON contact persistence verified.
 - Test contact record removed after verification.
+- All nine canonical public routes returned HTTP 200.
+- Sitemap, robots controls and required security headers passed the production smoke test.
 
 ## Runtime identity
 
@@ -37,10 +40,21 @@ Final verification was completed after the Nexus visual reconstruction, responsi
 ## Latest frontend output
 
 - Vite version: `8.1.1`.
-- Modules transformed: `940`.
-- Production CSS: `257.66 kB` before gzip and `50.61 kB` gzip.
-- Main public Home chunk: `42.61 kB` before gzip and `10.41 kB` gzip.
+- Modules transformed: `974`.
+- Shared production CSS: `267.86 kB` before gzip and `52.69 kB` gzip.
+- Content Disclosure CSS: `4.92 kB` before gzip and `1.55 kB` gzip.
+- Main public Home chunk: `40.28 kB` before gzip and `9.83 kB` gzip.
+- Shared Content Disclosure chunk: `9.71 kB` before gzip and `3.24 kB` gzip.
 - Production build completed successfully.
+
+## Evidence-first content verification
+
+- Every canonical public route includes evidence basis, scope boundary, review date and provenance links.
+- Static electrical, automotive and digital console values are labelled as interactive or illustrative reference models.
+- Executive Intelligence retains live API and route checks while planning charts remain explicitly identified as models.
+- Knowledge Vault numerical confidence percentages were removed and replaced with named evidence classes and traceability coverage.
+- Automotive Service Intelligence exposes its evidence-policy version, library review date and record owner.
+- IEC, Cummins, OWASP and W3C references are linked from the applicable public routes.
 
 ## Packaging and registry checks
 

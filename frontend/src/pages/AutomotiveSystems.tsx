@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useMemo, useState, type ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
+import ContentDisclosure from '@/components/ContentDisclosure';
 import NexusFooter from '@/components/nexus/NexusFooter';
 import AutomotiveHubNav from '@/components/automotive/AutomotiveHubNav';
 import Icon from '@/components/ui/Icon';
@@ -58,7 +59,10 @@ const automotiveSystemsSchema = [
       jobTitle: siteConfig.role,
       url: 'https://ecaturonald.tech/about',
     },
-    dateModified: '2026-07-15',
+    dateModified: '2026-07-19',
+    citation: [
+      'https://www.cummins.com/en-na/parts-and-service/digital-products-and-services/insite',
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -311,7 +315,7 @@ export default function AutomotiveSystems() {
             <div className="as-hero-layout">
               <div className="as-hero-copy">
                 <p className="as-system-line">
-                  <span className="as-live-dot" /> NEXUS MOTION DOMAIN · VEHICLE ONLINE
+                  <span className="as-live-dot" /> NEXUS MOTION DOMAIN · REFERENCE READY
                 </p>
                 <p className="as-overline">
                   ENERGY / COMBUSTION / MOTION / CONTROL / EVIDENCE
@@ -352,7 +356,7 @@ export default function AutomotiveSystems() {
               <div className="as-hero-console" aria-label="Illustrative vehicle systems command console">
                 <div className="as-console-head">
                   <div><span>ER / NEXUS</span><strong>Vehicle systems command field</strong></div>
-                  <small><i /> live reference model</small>
+                  <small><i /> interactive reference model</small>
                 </div>
                 <VehicleTopology activeNode={activeNode} />
                 <div className="as-console-readings">
@@ -379,6 +383,8 @@ export default function AutomotiveSystems() {
         </section>
 
         <AutomotiveHubNav />
+
+        <ContentDisclosure page="automotive" />
 
         <section
           id="architecture"

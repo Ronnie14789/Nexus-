@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useMemo, useState, type ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
+import ContentDisclosure from '@/components/ContentDisclosure';
 import NexusFooter from '@/components/nexus/NexusFooter';
 import Icon from '@/components/ui/Icon';
 import { siteConfig } from '@/data/portfolio';
@@ -58,7 +59,11 @@ const digitalSystemsSchema = [
       jobTitle: siteConfig.role,
       url: 'https://ecaturonald.tech/about',
     },
-    dateModified: '2026-07-15',
+    dateModified: '2026-07-19',
+    citation: [
+      'https://owasp.org/www-project-application-security-verification-standard/',
+      'https://www.w3.org/WAI/standards-guidelines/wcag/',
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -318,7 +323,7 @@ export default function DigitalSystems() {
             <div className="ds-hero-layout">
               <div className="ds-hero-copy">
                 <p className="ds-system-line">
-                  <span className="ds-live-dot" /> NEXUS INTELLIGENCE DOMAIN · OPERATING
+                  <span className="ds-live-dot" /> NEXUS INTELLIGENCE DOMAIN · REFERENCE READY
                 </p>
                 <p className="ds-overline">ARCHITECTURE / DATA / TRUST / DELIVERY / EVIDENCE</p>
                 <h1 id="ds-hero-title">
@@ -356,13 +361,13 @@ export default function DigitalSystems() {
               <div className="ds-hero-console" aria-label="Nexus digital systems command console">
                 <div className="ds-console-head">
                   <div><span>ER / NEXUS</span><strong>Digital operations field</strong></div>
-                  <small><i /> telemetry live</small>
+                  <small><i /> illustrative operating model</small>
                 </div>
                 <DigitalMesh activeNode={activeNode} />
                 <div className="ds-console-readings">
-                  <div><small>Requests</small><strong>2.48K <span>/ min</span></strong><i /></div>
-                  <div><small>P95 latency</small><strong>184 <span>ms</span></strong><i /></div>
-                  <div><small>Error budget</small><strong>HEALTHY</strong><i /></div>
+                  <div><small>Example load</small><strong>2.48K <span>/ min</span></strong><i /></div>
+                  <div><small>Example P95</small><strong>184 <span>ms</span></strong><i /></div>
+                  <div><small>Model state</small><strong>REFERENCE</strong><i /></div>
                 </div>
                 <div className="ds-console-path">
                   {architectureNodes.map((node, index) => (
@@ -381,6 +386,8 @@ export default function DigitalSystems() {
             </div>
           </div>
         </section>
+
+        <ContentDisclosure page="digital" />
 
         <section id="architecture" className="ds-section ds-architecture" aria-labelledby="architecture-title">
           <div className="nx-shell">

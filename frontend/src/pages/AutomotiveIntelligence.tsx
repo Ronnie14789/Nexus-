@@ -2,11 +2,13 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Seo from '@/components/Seo';
+import ContentDisclosure from '@/components/ContentDisclosure';
 import Icon from '@/components/ui/Icon';
 import AutomotiveHubNav from '@/components/automotive/AutomotiveHubNav';
 import { CommandPanel, MetricTile, SectionHeading, StatusBeacon } from '@/components/nexus-command/NexusCommandUI';
 import {
   automotiveServiceRecords,
+  serviceLibraryMetadata,
   serviceRecordTypeLabels,
   serviceSystemLabels,
   type AutomotiveServiceRecord,
@@ -133,6 +135,7 @@ export default function AutomotiveIntelligence() {
           name: 'Nexus Automotive Service Intelligence',
           url: 'https://ecaturonald.tech/automotive-systems/intelligence',
           description: 'An evidence-led automotive service intelligence library based on anonymized field cases.',
+          dateModified: '2026-07-19',
         }}
       />
 
@@ -144,8 +147,8 @@ export default function AutomotiveIntelligence() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="ai-topline">
-              <StatusBeacon status="online" label="Field intelligence indexed" />
-              <span>Anonymized · Evidence labelled · Technician reviewed</span>
+              <StatusBeacon status="ready" label="Field intelligence indexed" />
+              <span>Policy {serviceLibraryMetadata.evidencePolicyVersion} · Reviewed {serviceLibraryMetadata.lastReviewed}</span>
             </div>
             <p className="ai-overline">NEXUS / AUTOMOTIVE SYSTEMS / SERVICE INTELLIGENCE</p>
             <h1>Real field evidence.<em>Useful decisions.</em></h1>
@@ -173,6 +176,8 @@ export default function AutomotiveIntelligence() {
       </section>
 
       <AutomotiveHubNav />
+
+      <ContentDisclosure page="automotive-intelligence" />
 
       <section className="ai-section">
         <div className="ai-shell">
@@ -312,6 +317,7 @@ export default function AutomotiveIntelligence() {
               <div className="ai-source">
                 <strong>Source status</strong>
                 <p>{activeRecord.sourceSummary}</p>
+                <small>Library review: {serviceLibraryMetadata.lastReviewed} · Record owner: {serviceLibraryMetadata.owner}</small>
                 <div>{activeRecord.evidenceStatus.map((status) => <span key={status}>{status.replaceAll('-', ' ')}</span>)}</div>
               </div>
             </article>

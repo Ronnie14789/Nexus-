@@ -24,7 +24,7 @@ The visual system combines a cinematic engineering grid with an editorial presen
 - Purpose-built desktop and mobile compositions.
 - Accessible keyboard navigation, visible focus states, reduced-motion support and dark/light themes.
 
-## Main public sections
+## Main public experience
 
 1. **Nexus Hero** — professional positioning, route, diagnostic loop and direct actions.
 2. **Engineering Profile** — professional purpose, operating principles and career direction.
@@ -36,6 +36,30 @@ The visual system combines a cinematic engineering grid with an editorial presen
 8. **International Gallery** — SkillPro, Cummins and industrial-exposure evidence.
 9. **Leadership Direction** — integrity, management and consultancy ambition.
 10. **First-party Contact System** — secure contact form connected to the included server.
+
+## Public system routes
+
+- `/about` — detailed professional identity, experience, education and verified public profiles.
+- `/electrical-systems` — interactive electrical architecture, diagnostics, tools, safety and reference models.
+- `/automotive-systems` — vehicle architecture, diagnostic workflows, field logic, maintenance and safety.
+- `/automotive-systems/intelligence` — anonymized automotive service records with evidence and specification boundaries.
+- `/automotive-systems/diagnostics` — deterministic, explainable diagnostic decision support.
+- `/digital-systems` — software architecture, data, security, delivery and operations references.
+- `/executive-intelligence` — real API and route checks separated from strategic planning models.
+- `/knowledge-vault` — searchable cross-domain procedures, field cases and evidence classes.
+
+## Content trust model
+
+Every public route includes a visible **Content Trust** disclosure that states:
+
+- what evidence supports the page;
+- what the information does and does not claim;
+- when the page was last reviewed;
+- which public, manufacturer or standards references are relevant.
+
+The Knowledge Vault uses named evidence classes—`verified`, `field-proven`, `reference` and `developing`—instead of unsupported numerical confidence scores. Static educational examples are labelled as reference models. Only the Executive Intelligence API and route checks are described as live runtime readings.
+
+Current public references include IEC low-voltage installation and verification publications, Cummins INSITE product information, OWASP ASVS, W3C WCAG, the Nexus source repository and Ronald’s linked professional profiles.
 
 ## First-party contact server
 

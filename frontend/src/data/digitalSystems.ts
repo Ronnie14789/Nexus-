@@ -890,12 +890,12 @@ export const fieldCaseFiles: DigitalCaseFile[] = [
   {
     code: 'DS-CASE-03',
     title: 'Database fallback during local development',
-    context: 'The production environment used managed MongoDB, while a fresh Codespace intentionally had no protected environment file.',
+    context: 'The application supports managed MongoDB in production, while a fresh Codespace intentionally had no protected environment file.',
     complaint: 'Local health reported database disconnected and email unconfigured although the website route worked.',
     evidence: ['backend/.env absent', 'MONGODB_URI not set', 'Fallback storage enabled', 'Production secrets remained outside Git'],
     rootCause: 'The local environment did not contain production-only credentials by design.',
     decision: 'Keep safe local fallback and explicit diagnostics instead of copying production secrets into source control.',
-    verification: 'Local routes and file storage worked; production health independently confirmed managed database and email configuration.',
+    verification: 'Local routes and file storage worked. Production database and email status must be confirmed separately through health diagnostics and an end-to-end message test.',
   },
   {
     code: 'DS-CASE-04',
@@ -915,7 +915,7 @@ export const fieldCaseFiles: DigitalCaseFile[] = [
     evidence: ['Message existed in storage', 'Email status recorded failure', 'Provider authentication response available', 'Retry count remained bounded'],
     rootCause: 'The SMTP credential or sender configuration was invalid while the primary storage operation remained healthy.',
     decision: 'Rotate the protected credential, verify transport at startup and retain explicit delivery status with manual retry.',
-    verification: 'A new message produced stored, sending and delivered states and arrived at the intended mailbox.',
+    verification: 'Required proof is a new message that records stored, sending and delivered states and arrives at the intended mailbox.',
   },
   {
     code: 'DS-CASE-06',
@@ -935,7 +935,7 @@ export const fieldCaseFiles: DigitalCaseFile[] = [
     evidence: ['Repository main was correct', 'Platform deployment state required confirmation', 'Search index retained previous page information'],
     rootCause: 'Public reachability depended on domain, DNS, TLS and platform attachment, not only source code.',
     decision: 'Separate application verification from domain verification using platform URL, deployment logs, DNS state and HTTPS tests.',
-    verification: 'The custom domain loaded securely and live contact messages reached the configured mailbox.',
+    verification: 'Required proof is successful HTTPS loading on the custom domain plus an end-to-end contact message reaching the configured mailbox.',
   },
   {
     code: 'DS-CASE-08',

@@ -10,6 +10,7 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
+import ContentDisclosure from '@/components/ContentDisclosure';
 import Icon from '@/components/ui/Icon';
 import {
   CommandButton,
@@ -403,6 +404,7 @@ export default function ExecutiveIntelligence() {
         url: 'https://ecaturonald.tech/executive-intelligence',
         description:
           'A professional engineering command center connecting electrical, automotive and digital systems with platform status, executive search, roadmap intelligence and future diagnostic operations.',
+        dateModified: '2026-07-19',
         creator: {
           '@type': 'Person',
           name: 'Ecatu Ronald',
@@ -538,9 +540,7 @@ export default function ExecutiveIntelligence() {
                 value={pulse.state === 'online' ? 'HEALTHY' : pulse.state.toUpperCase()}
                 detail={pulse.message}
                 tone={pulse.state === 'online' ? 'lime' : 'amber'}
-              >
-                <Sparkline values={[71, 74, 79, 82, 81, 87, 91, 94, 96, pulse.state === 'online' ? 99 : 72]} label="API status trend" tone={pulse.state === 'online' ? 'lime' : 'amber'} />
-              </MetricTile>
+              />
               <MetricTile
                 label="Public route surface"
                 value={`${pulse.routesReady}/${pulse.routesTotal}`}
@@ -556,7 +556,7 @@ export default function ExecutiveIntelligence() {
                 detail="Electrical, Automotive and Digital Systems are active public domains."
                 tone="blue"
               >
-                <Sparkline values={[30, 52, 74, 88, 96, 99]} label="Core domain delivery trend" tone="blue" />
+                <Sparkline values={[30, 52, 74, 88, 96, 99]} label="Core domain delivery model" tone="blue" />
               </MetricTile>
               <MetricTile
                 label="Readiness model"
@@ -570,6 +570,8 @@ export default function ExecutiveIntelligence() {
             </div>
           </div>
         </section>
+
+        <ContentDisclosure page="executive" />
 
         <section id="mission-control" className="ei-section ei-command-deck" aria-labelledby="mission-control-title">
           <div className="ei-shell">

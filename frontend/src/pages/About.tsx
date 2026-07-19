@@ -1,4 +1,5 @@
 import Seo from '@/components/Seo';
+import ContentDisclosure from '@/components/ContentDisclosure';
 import NexusFooter from '@/components/nexus/NexusFooter';
 import {
   disciplines,
@@ -24,7 +25,7 @@ const profileSchema = {
   name: 'About Ecatu Ronald',
   headline: 'Ecatu Ronald — Electrical & Automotive Systems Engineer',
   description,
-  dateModified: '2026-07-12',
+  dateModified: '2026-07-19',
   mainEntity: {
     '@type': 'Person',
     '@id': 'https://ecaturonald.tech/#person',
@@ -146,6 +147,8 @@ export default function About() {
             </figure>
           </div>
         </section>
+
+        <ContentDisclosure page="about" />
 
         <section className="about-section">
           <div className="nx-shell about-two-column">
