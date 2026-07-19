@@ -4,48 +4,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="x-apple-disable-message-reformatting">
-    <title>New contact enquiry · {{referenceNumber}}</title>
+    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    <title>New professional enquiry · {{referenceNumber}}</title>
+    <style>
+      @media screen and (max-width:560px) {
+        .email-pad { padding-left:20px !important; padding-right:20px !important; }
+        .header-status { display:none !important; }
+        .stack-cell { display:block !important; width:auto !important; border-right:0 !important; }
+        .action-cell { display:block !important; width:100% !important; }
+        .action-cell a { display:block !important; text-align:center !important; }
+        .action-gap { display:block !important; width:100% !important; height:10px !important; }
+        .footer-cell { display:block !important; width:auto !important; text-align:left !important; padding-top:8px !important; }
+      }
+    </style>
   </head>
-  <body style="margin:0;padding:0;background:#050d17;font-family:Arial,Helvetica,sans-serif;color:#102033;">
-    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
-      New portfolio enquiry from {{name}} · {{referenceNumber}}.
+  <body style="margin:0;padding:0;background-color:#eef2f6;color:#172234;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;-webkit-text-size-adjust:100%;">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;mso-hide:all;">
+      {{name}} sent a {{enquiryType}} enquiry · {{referenceNumber}}.
     </div>
 
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#050d17;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#eef2f6;">
       <tr>
-        <td align="center" style="padding:28px 12px;">
-          <table role="presentation" width="680" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:680px;background:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.38);">
+        <td align="center" style="padding:32px 12px;">
+          <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:640px;background-color:#ffffff;border:1px solid #dce3ea;border-radius:16px;overflow:hidden;">
             <tr>
-              <td style="padding:28px 32px;background:#071a2e;border-bottom:1px solid #173550;">
+              <td style="height:5px;background-color:#246bfd;font-size:0;line-height:0;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="email-pad" style="padding:24px 28px;border-bottom:1px solid #e5eaf0;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td width="54" valign="middle">
-                      <div style="width:46px;height:46px;line-height:46px;text-align:center;border-radius:14px;background:#149cff;color:#ffffff;font-size:18px;font-weight:800;letter-spacing:1px;">ER</div>
+                    <td width="48" valign="middle">
+                      <div style="width:40px;height:40px;line-height:40px;text-align:center;border-radius:10px;background-color:#10223e;color:#ffffff;font-size:15px;font-weight:700;letter-spacing:.5px;">ER</div>
                     </td>
                     <td valign="middle">
-                      <div style="font-size:11px;line-height:1.4;letter-spacing:2.2px;text-transform:uppercase;color:#67c7ff;font-weight:700;">Nexus Communications Console</div>
-                      <div style="margin-top:4px;font-size:18px;line-height:1.3;color:#ffffff;font-weight:700;">New portfolio enquiry</div>
+                      <div style="font-size:15px;line-height:1.3;color:#10223e;font-weight:700;">Ecatu Ronald</div>
+                      <div style="margin-top:3px;font-size:11px;line-height:1.4;color:#637083;letter-spacing:.6px;text-transform:uppercase;">Professional correspondence</div>
                     </td>
-                    <td align="right" valign="middle">
-                      <div style="display:inline-block;padding:8px 11px;border-radius:999px;background:#102f49;color:#7ad3ff;font-size:10px;letter-spacing:1.3px;font-weight:700;">NEW</div>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:30px 32px 0;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#edf7ff;border:1px solid #cbe8fb;border-radius:18px;">
-                  <tr>
-                    <td style="padding:22px 24px;">
-                      <div style="font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:#39759a;font-weight:700;">Reference</div>
-                      <div style="margin-top:6px;font-size:24px;line-height:1.2;color:#071a2e;font-weight:800;letter-spacing:1px;">{{referenceNumber}}</div>
-                      <div style="margin-top:8px;font-size:12px;color:#5d7b91;">Received {{submittedAt}} · East Africa Time</div>
-                    </td>
-                    <td width="160" align="right" valign="middle" style="padding:22px 24px;">
-                      <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#39759a;font-weight:700;">Enquiry type</div>
-                      <div style="margin-top:7px;font-size:13px;line-height:1.45;color:#0e3551;font-weight:700;">{{enquiryType}}</div>
+                    <td class="header-status" align="right" valign="middle">
+                      <span style="display:inline-block;padding:6px 9px;border-radius:999px;background-color:#edf3ff;color:#1f5bc4;font-size:10px;line-height:1.2;font-weight:700;letter-spacing:.8px;text-transform:uppercase;">New enquiry</span>
                     </td>
                   </tr>
                 </table>
@@ -53,58 +52,115 @@
             </tr>
 
             <tr>
-              <td style="padding:24px 32px 32px;">
-                <h1 style="margin:0 0 6px;font-size:27px;line-height:1.25;color:#071a2e;letter-spacing:-.4px;">{{subject}}</h1>
-                <p style="margin:0 0 24px;font-size:13px;line-height:1.6;color:#6d8295;">A new message has entered the private portfolio communications system.</p>
+              <td class="email-pad" style="padding:32px 28px 12px;">
+                <div style="font-size:11px;line-height:1.4;color:#246bfd;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Portfolio contact</div>
+                <h1 style="margin:8px 0 10px;font-size:28px;line-height:1.2;color:#10223e;font-weight:700;letter-spacing:-.4px;">New professional enquiry</h1>
+                <p style="margin:0;font-size:15px;line-height:1.7;color:#58677a;">A new message was submitted through ecaturonald.tech. Review the sender, subject and message before responding.</p>
+              </td>
+            </tr>
 
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #dde7ef;border-radius:16px;overflow:hidden;">
+            <tr>
+              <td class="email-pad" style="padding:18px 28px 0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f6f8fb;border:1px solid #dfe5ec;border-radius:12px;">
                   <tr>
-                    <td width="50%" valign="top" style="padding:18px 20px;border-right:1px solid #e2eaf1;border-bottom:1px solid #e2eaf1;">
-                      <div style="font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#7b8fa1;font-weight:700;">Sender</div>
-                      <div style="margin-top:7px;font-size:15px;color:#102033;font-weight:700;">{{name}}</div>
+                    <td class="stack-cell" width="58%" valign="top" style="padding:18px 20px;border-right:1px solid #dfe5ec;">
+                      <div style="font-size:10px;line-height:1.3;color:#6c7989;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Reference number</div>
+                      <div style="margin-top:7px;font-size:18px;line-height:1.3;color:#10223e;font-weight:700;letter-spacing:.4px;">{{referenceNumber}}</div>
                     </td>
-                    <td width="50%" valign="top" style="padding:18px 20px;border-bottom:1px solid #e2eaf1;">
-                      <div style="font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#7b8fa1;font-weight:700;">Phone</div>
-                      <div style="margin-top:7px;font-size:14px;color:#102033;">{{phone}}</div>
+                    <td class="stack-cell" width="42%" valign="top" style="padding:18px 20px;">
+                      <div style="font-size:10px;line-height:1.3;color:#6c7989;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Category</div>
+                      <div style="margin-top:7px;font-size:13px;line-height:1.5;color:#24364d;font-weight:700;">{{enquiryType}}</div>
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="2" style="padding:18px 20px;">
-                      <div style="font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#7b8fa1;font-weight:700;">Email</div>
-                      <div style="margin-top:7px;font-size:14px;"><a href="mailto:{{email}}" style="color:#0b78c4;text-decoration:none;font-weight:700;">{{email}}</a></div>
+                    <td colspan="2" style="padding:13px 20px;border-top:1px solid #dfe5ec;font-size:12px;line-height:1.5;color:#68778a;">Received {{submittedAt}} · East Africa Time</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="email-pad" style="padding:26px 28px 0;">
+                <div style="margin-bottom:10px;font-size:10px;line-height:1.3;color:#6c7989;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Sender details</div>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #dfe5ec;border-radius:12px;overflow:hidden;">
+                  <tr>
+                    <td class="stack-cell" width="50%" valign="top" style="padding:16px 18px;border-right:1px solid #e4e9ef;border-bottom:1px solid #e4e9ef;">
+                      <div style="font-size:10px;line-height:1.3;color:#7a8797;font-weight:700;text-transform:uppercase;letter-spacing:.8px;">Name</div>
+                      <div style="margin-top:6px;font-size:14px;line-height:1.5;color:#172234;font-weight:700;">{{name}}</div>
+                    </td>
+                    <td class="stack-cell" width="50%" valign="top" style="padding:16px 18px;border-bottom:1px solid #e4e9ef;">
+                      <div style="font-size:10px;line-height:1.3;color:#7a8797;font-weight:700;text-transform:uppercase;letter-spacing:.8px;">Phone</div>
+                      <div style="margin-top:6px;font-size:14px;line-height:1.5;color:#172234;">{{phone}}</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" style="padding:16px 18px;">
+                      <div style="font-size:10px;line-height:1.3;color:#7a8797;font-weight:700;text-transform:uppercase;letter-spacing:.8px;">Email</div>
+                      <div style="margin-top:6px;font-size:14px;line-height:1.5;"><a href="mailto:{{email}}" style="color:#185bc8;text-decoration:underline;font-weight:700;">{{email}}</a></div>
                     </td>
                   </tr>
                 </table>
+              </td>
+            </tr>
 
-                <div style="margin-top:22px;">
-                  <div style="margin-bottom:9px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#6f8497;font-weight:700;">Message</div>
-                  <div style="padding:20px 20px;background:#f7f9fb;border-left:4px solid #149cff;border-radius:0 14px 14px 0;font-size:14px;line-height:1.75;color:#3e5569;white-space:pre-line;">{{message}}</div>
+            <tr>
+              <td class="email-pad" style="padding:26px 28px 0;">
+                <div style="margin-bottom:8px;font-size:10px;line-height:1.3;color:#6c7989;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Subject</div>
+                <div style="font-size:20px;line-height:1.4;color:#172234;font-weight:700;">{{subject}}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="email-pad" style="padding:22px 28px 0;">
+                <div style="margin-bottom:9px;font-size:10px;line-height:1.3;color:#6c7989;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Message</div>
+                <div style="padding:18px 20px;background-color:#f7f9fb;border:1px solid #e1e7ed;border-left:4px solid #246bfd;border-radius:8px;font-size:14px;line-height:1.75;color:#34465c;white-space:pre-line;">{{message}}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="email-pad" style="padding:26px 28px 10px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td class="action-cell" style="border-radius:8px;background-color:#246bfd;">
+                      <a href="{{replyUrl}}" style="display:inline-block;padding:13px 18px;color:#ffffff;text-decoration:none;font-size:13px;line-height:1.2;font-weight:700;">Reply to {{name}}</a>
+                    </td>
+                    <td class="action-gap" width="10"></td>
+                    <td class="action-cell" style="border:1px solid #ccd5df;border-radius:8px;background-color:#ffffff;">
+                      <a href="{{adminUrl}}" style="display:inline-block;padding:12px 18px;color:#24364d;text-decoration:none;font-size:13px;line-height:1.2;font-weight:700;">View contact record</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="email-pad" style="padding:18px 28px 32px;">
+                <div style="padding:14px 16px;background-color:#fff8e8;border:1px solid #f1dfaa;border-radius:8px;font-size:12px;line-height:1.65;color:#66552c;">
+                  <strong style="color:#4f421f;">Response check:</strong> Confirm the request and sender details before sharing confidential, commercial or account information.
                 </div>
-
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:26px;">
-                  <tr>
-                    <td style="border-radius:12px;background:#149cff;">
-                      <a href="{{replyUrl}}" style="display:inline-block;padding:14px 20px;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;">Reply to {{name}}</a>
-                    </td>
-                    <td width="12"></td>
-                    <td style="border-radius:12px;background:#071a2e;">
-                      <a href="{{adminUrl}}" style="display:inline-block;padding:14px 20px;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;">Open communications console</a>
-                    </td>
-                  </tr>
-                </table>
-
-                <div style="margin-top:24px;padding:15px 17px;border:1px solid #e2eaf1;border-radius:12px;background:#fbfcfd;font-size:11px;line-height:1.65;color:#708598;">
-                  Delivery record: the sender confirmation and this administrator notification are tracked independently in MongoDB. Open the console to view status or resend either message.
-                </div>
               </td>
             </tr>
 
             <tr>
-              <td style="padding:18px 32px;background:#071a2e;font-size:11px;line-height:1.65;color:#8da7bd;">
-                Private operational notification from ecaturonald.tech · Submission ID {{submissionId}} · © {{year}} Ecatu Ronald.
+              <td class="email-pad" style="padding:20px 28px;background-color:#10223e;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td valign="top" style="font-size:11px;line-height:1.65;color:#b9c4d2;">
+                      <strong style="color:#ffffff;">Ecatu Ronald · Professional Correspondence</strong><br>
+                      Automated administrative notice from <a href="{{siteUrl}}" style="color:#9ec1ff;text-decoration:none;">ecaturonald.tech</a>
+                    </td>
+                    <td class="footer-cell" align="right" valign="top" style="font-size:10px;line-height:1.65;color:#8f9daf;">
+                      Submission {{submissionId}}<br>© {{year}} Ecatu Ronald
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
           </table>
+
+          <div style="max-width:640px;margin:14px auto 0;font-size:10px;line-height:1.6;color:#8490a0;text-align:center;">
+            This private notification was generated because the portfolio contact form received a submission.
+          </div>
         </td>
       </tr>
     </table>

@@ -79,6 +79,8 @@ The server provides:
 - MongoDB persistence when configured.
 - Automatic local JSON fallback storage during local preview.
 - Administrator notifications and visitor acknowledgements through SMTP.
+- A unified, responsive correspondence design for contact, newsletter and publication emails.
+- Plain-text alternatives for every HTML email and visible reference numbers for contact follow-up.
 - Protected administration routes for message management.
 
 Without MongoDB, valid messages are saved to:
@@ -88,6 +90,12 @@ backend/data/contact-submissions.json
 ```
 
 Without SMTP, messages remain stored but email notifications are not delivered.
+
+### Email correspondence system
+
+All transactional and publication templates use a restrained professional identity, table-based email layout, inline critical styling, mobile adjustments and descriptive preheader text. Contact messages preserve the enquiry category, subject, submitted content, timestamp and reference number. Administrator notifications include direct reply and contact-record actions, while public confirmations explain what happens next without promising a response time.
+
+Every HTML template has a matching plain-text version. Future template changes should keep both versions aligned and must not remove unsubscribe links from newsletter or publication messages.
 
 ## Technology
 

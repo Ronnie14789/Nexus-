@@ -1,48 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Newsletter Subscription Confirmed</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0f172a; color: #e2e8f0; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background: linear-gradient(135deg, #059669, #0891b2); padding: 40px 30px; border-radius: 12px 12px 0 0; text-align: center; }
-    .header h1 { color: #ffffff; font-size: 28px; }
-    .header p { color: #a7f3d0; margin-top: 8px; }
-    .body { background-color: #1e293b; padding: 40px 30px; border-radius: 0 0 12px 12px; }
-    .greeting { font-size: 20px; font-weight: 600; color: #f1f5f9; margin-bottom: 16px; }
-    .message { color: #94a3b8; line-height: 1.7; margin-bottom: 24px; }
-    .benefits { background-color: #0f172a; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
-    .benefit { display: flex; align-items: center; margin-bottom: 12px; color: #94a3b8; }
-    .benefit::before { content: "✓"; color: #10b981; margin-right: 10px; font-weight: bold; }
-    .cta-button { display: inline-block; background: linear-gradient(135deg, #059669, #0891b2); color: #ffffff !important; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 16px 0; }
-    .footer { text-align: center; margin-top: 30px; color: #475569; font-size: 12px; }
-    .footer a { color: #64748b; text-decoration: underline; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>🎉 You're Subscribed!</h1>
-      <p>Welcome to my newsletter, {{name}}</p>
-    </div>
-    <div class="body">
-      <p class="greeting">Hi {{name}},</p>
-      <p class="message">You've successfully subscribed to my newsletter. I'm thrilled to have you onboard!</p>
-      <div class="benefits">
-        <div class="benefit">Latest blog posts on automotive technology</div>
-        <div class="benefit">Tips on vehicle maintenance and diagnostics</div>
-        <div class="benefit">Updates on my projects and achievements</div>
-        <div class="benefit">Insights on emerging vehicle technologies</div>
-      </div>
-      <a href="{{siteUrl}}" class="cta-button">Explore My Portfolio</a>
-      <div class="footer">
-        <p>© {{year}} Ecatu Ronald. All rights reserved.</p>
-        <p style="margin-top:8px"><a href="{{unsubscribeUrl}}">Unsubscribe</a> | <a href="mailto:ronaldecatu@gmail.com">Contact</a></p>
-      </div>
-    </div>
-  </div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+    <meta name="color-scheme" content="light">
+    <title>Subscription confirmed · Ecatu Ronald</title>
+    <style>@media screen and (max-width:560px){.email-pad{padding-left:20px !important;padding-right:20px !important}.header-status{display:none !important}}</style>
+  </head>
+  <body style="margin:0;padding:0;background-color:#eef2f6;color:#172234;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;-webkit-text-size-adjust:100%;">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;mso-hide:all;">Your subscription to Ecatu Ronald's field notes is confirmed.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#eef2f6;">
+      <tr>
+        <td align="center" style="padding:32px 12px;">
+          <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:640px;background-color:#ffffff;border:1px solid #dce3ea;border-radius:16px;overflow:hidden;">
+            <tr><td style="height:5px;background-color:#246bfd;font-size:0;line-height:0;">&nbsp;</td></tr>
+            <tr>
+              <td class="email-pad" style="padding:24px 28px;border-bottom:1px solid #e5eaf0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                  <td width="48"><div style="width:40px;height:40px;line-height:40px;text-align:center;border-radius:10px;background-color:#10223e;color:#ffffff;font-size:15px;font-weight:700;">ER</div></td>
+                  <td><div style="font-size:15px;line-height:1.3;color:#10223e;font-weight:700;">Ecatu Ronald</div><div style="margin-top:3px;font-size:11px;color:#637083;letter-spacing:.6px;text-transform:uppercase;">Engineering field notes</div></td>
+                  <td class="header-status" align="right"><span style="display:inline-block;padding:6px 9px;border-radius:999px;background-color:#edf7f2;color:#267255;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;">Confirmed</span></td>
+                </tr></table>
+              </td>
+            </tr>
+            <tr>
+              <td class="email-pad" style="padding:38px 28px 12px;">
+                <div style="font-size:11px;color:#246bfd;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Subscription confirmed</div>
+                <h1 style="margin:9px 0 12px;font-size:30px;line-height:1.18;color:#10223e;font-weight:700;letter-spacing:-.5px;">Welcome, {{name}}.</h1>
+                <p style="margin:0;font-size:16px;line-height:1.75;color:#58677a;">You are subscribed to concise updates from Ecatu Ronald on systems engineering, diagnostics, technical practice and portfolio development.</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="email-pad" style="padding:24px 28px 0;">
+                <div style="padding:20px;background-color:#f6f8fb;border:1px solid #dfe5ec;border-radius:12px;">
+                  <div style="font-size:10px;color:#6c7989;font-weight:700;letter-spacing:1px;text-transform:uppercase;">What you can expect</div>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:13px;">
+                    <tr><td width="24" valign="top" style="color:#246bfd;font-weight:700;">01</td><td style="padding-bottom:9px;font-size:13px;line-height:1.6;color:#405067;">New technical articles and engineering reference material.</td></tr>
+                    <tr><td width="24" valign="top" style="color:#246bfd;font-weight:700;">02</td><td style="padding-bottom:9px;font-size:13px;line-height:1.6;color:#405067;">Selected automotive and electrical diagnostic insights.</td></tr>
+                    <tr><td width="24" valign="top" style="color:#246bfd;font-weight:700;">03</td><td style="font-size:13px;line-height:1.6;color:#405067;">Meaningful project and professional-record updates.</td></tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="email-pad" style="padding:26px 28px 10px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-radius:8px;background-color:#246bfd;"><a href="{{siteUrl}}" style="display:inline-block;padding:13px 19px;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;">Visit the portfolio</a></td></tr></table>
+              </td>
+            </tr>
+            <tr>
+              <td class="email-pad" style="padding:22px 28px 32px;font-size:13px;line-height:1.7;color:#667588;">Thank you for choosing to stay informed.<br><strong style="color:#172234;">Ecatu Ronald</strong><br>Kampala, Uganda</td>
+            </tr>
+            <tr>
+              <td class="email-pad" style="padding:19px 28px;background-color:#f6f8fb;border-top:1px solid #e1e7ed;font-size:11px;line-height:1.65;color:#778596;">You received this message because {{email}} subscribed at ecaturonald.tech. You may <a href="{{unsubscribeUrl}}" style="color:#315f9d;text-decoration:underline;">unsubscribe at any time</a>. © {{year}} Ecatu Ronald.</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>

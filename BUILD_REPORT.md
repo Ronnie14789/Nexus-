@@ -30,6 +30,8 @@ Final verification was completed on 19 July 2026 after the evidence-first conten
 - Contact storage during verification: local file fallback.
 - MongoDB remains optional for local preview.
 - SMTP remains optional for local preview.
+- All four HTML email templates and four plain-text fallbacks compiled with representative data.
+- The correspondence templates use responsive, table-based layouts with inline critical styles and mobile fallbacks.
 
 ## Dependency checks
 
