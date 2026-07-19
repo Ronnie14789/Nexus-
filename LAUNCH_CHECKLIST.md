@@ -7,6 +7,10 @@
 - [x] Present the Uganda–India engineering journey.
 - [x] Add Tata Uganda, China Machines, and Tetra Technical Services experience.
 - [x] Add verified education, training, languages, contact details, and LinkedIn profile.
+- [x] Add visible evidence basis, scope boundary and review date to every public route.
+- [x] Replace unsupported numerical confidence scores with named evidence classes.
+- [x] Label static engineering values and architecture charts as reference models.
+- [x] Add public standards, manufacturer and repository references where applicable.
 - [ ] Add the final CV PDF when it is completed.
 - [ ] Upload certificate scans after confirming the final versions.
 - [ ] Add real GitHub and live project links when available.
@@ -31,8 +35,8 @@
 
 ## Domain and deployment
 
-- [ ] Purchase or confirm the final domain.
-- [ ] Add the final canonical URL and convert social-sharing image URLs to the final absolute HTTPS domain.
+- [x] Set `ecaturonald.tech` as the canonical domain in the site, sitemap, robots file and CNAME.
+- [x] Use the final absolute HTTPS domain for canonical and social-sharing metadata.
 - [ ] Configure DNS and HTTPS.
 - [ ] Add the final domain to `FRONTEND_URL` and `ALLOWED_ORIGINS`.
 - [ ] Confirm `/api/health`, `/admin/login`, and the public contact form on the deployed website.
@@ -50,3 +54,5 @@
 - [x] Direct React route fallback test.
 - [x] Valid, invalid, and spam-filtered contact-form tests.
 - [x] Frontend and backend package audits with no known vulnerabilities at the time of packaging.
+- [x] Evidence-first content model and public-route disclosure integration.
+- [x] Current public-route sitemap verification.

@@ -325,11 +325,13 @@
 .kv-reader-actions button svg { width: 15px; }
 .kv-reader-actions button.active { color: var(--nc-green); border-color: rgba(104,232,173,.3); }
 
-.kv-reader-confidence { display: flex; gap: 22px; align-items: center; padding: 24px 28px; border-bottom: 1px solid var(--nc-line); }
-.kv-reader-confidence > div:last-child { display: grid; gap: 6px; }
-.kv-reader-confidence span { color: var(--nc-text-muted); font: 800 .44rem var(--nc-font-mono); letter-spacing: .12em; }
-.kv-reader-confidence strong { font-size: .88rem; line-height: 1.4; }
-.kv-reader-confidence small { color: var(--nc-text-muted); font-size: .55rem; text-transform: capitalize; }
+.kv-reader-evidence { display: flex; gap: 22px; align-items: center; padding: 24px 28px; border-bottom: 1px solid var(--nc-line); }
+.kv-reader-evidence > div:last-child { display: grid; gap: 6px; }
+.kv-reader-evidence span { color: var(--nc-text-muted); font: 800 .44rem var(--nc-font-mono); letter-spacing: .12em; }
+.kv-reader-evidence strong { font-size: .88rem; line-height: 1.4; }
+.kv-reader-evidence small { color: var(--nc-text-muted); font-size: .55rem; text-transform: capitalize; }
+.kv-reader-evidence-mark { display: grid; min-width: 132px; gap: 8px; padding: 14px; border: 1px solid var(--nc-line); border-radius: 14px; background: rgba(255,255,255,.025); }
+.kv-reader-evidence-mark small { color: var(--nc-text-muted); font: 700 .44rem var(--nc-font-mono); text-transform: uppercase; }
 
 .kv-reader-section { padding: 26px 28px; border-bottom: 1px solid var(--nc-line); }
 .kv-reader-section:last-child { border-bottom: 0; }
@@ -511,9 +513,9 @@
   .kv-map-node small { display: none; }
   .kv-integrity-stats { grid-template-columns: 1fr; }
   .kv-reader-head,
-  .kv-reader-confidence,
+  .kv-reader-evidence,
   .kv-reader-section { padding-inline: 20px; }
-  .kv-reader-confidence { align-items: flex-start; flex-direction: column; }
+  .kv-reader-evidence { align-items: flex-start; flex-direction: column; }
   .kv-path-list li { grid-template-columns: 35px 1fr; padding: 12px; }
   .kv-related-list button { grid-template-columns: 1fr 18px; }
   .kv-related-list button span { grid-column: 1 / -1; }

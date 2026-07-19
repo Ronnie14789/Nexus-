@@ -44,6 +44,12 @@ export const serviceRecordTypeLabels: Record<ServiceRecordType, string> = {
   'reporting-reference': 'Reporting reference',
 };
 
+export const serviceLibraryMetadata = {
+  evidencePolicyVersion: '1.0.0',
+  lastReviewed: '19 July 2026',
+  owner: 'Ecatu Ronald',
+} as const;
+
 export const automotiveServiceRecords: AutomotiveServiceRecord[] = [
   {
     "id": "journal-no-2",

@@ -9,6 +9,7 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
+import ContentDisclosure from '@/components/ContentDisclosure';
 import Icon from '@/components/ui/Icon';
 import {
   CommandButton,
@@ -150,7 +151,7 @@ export default function KnowledgeVault() {
   const [selectedDomain, setSelectedDomain] = useState<KnowledgeDomain | 'all'>('all');
   const [selectedKind, setSelectedKind] = useState<KnowledgeKind | 'all'>('all');
   const [selectedEvidence, setSelectedEvidence] = useState<EvidenceLevel | 'all'>('all');
-  const [sortMode, setSortMode] = useState<'relevance' | 'confidence' | 'updated' | 'title'>('relevance');
+  const [sortMode, setSortMode] = useState<'relevance' | 'evidence' | 'updated' | 'title'>('relevance');
   const [activeRecordId, setActiveRecordId] = useState(knowledgeRecords[0]?.id ?? '');
   const [savedIds, setSavedIds] = useState<string[]>(() => readStorage(savedStorageKey));
   const [recentIds, setRecentIds] = useState<string[]>(() => readStorage(recentStorageKey));
@@ -186,10 +187,13 @@ export default function KnowledgeVault() {
     return scored
       .sort((left, right) => {
         if (sortMode === 'relevance' && query.trim()) return right.score - left.score;
-        if (sortMode === 'confidence') return right.record.confidence - left.record.confidence;
+        if (sortMode === 'evidence') {
+          return evidenceOrder.indexOf(left.record.evidence) - evidenceOrder.indexOf(right.record.evidence);
+        }
         if (sortMode === 'updated') return right.record.updated.localeCompare(left.record.updated);
         if (sortMode === 'title') return left.record.title.localeCompare(right.record.title);
-        return right.record.confidence - left.record.confidence;
+        const evidenceDifference = evidenceOrder.indexOf(left.record.evidence) - evidenceOrder.indexOf(right.record.evidence);
+        return evidenceDifference || right.record.updated.localeCompare(left.record.updated);
       })
       .map(({ record }) => record);
   }, [query, savedIds, savedOnly, selectedDomain, selectedEvidence, selectedKind, sortMode]);
@@ -217,10 +221,10 @@ export default function KnowledgeVault() {
   const verifiedCount = knowledgeRecords.filter(
     (record) => record.evidence === 'verified' || record.evidence === 'field-proven',
   ).length;
-  const averageConfidence = knowledgeRecords.reduce(
-    (total, record) => total + record.confidence / knowledgeRecords.length,
-    0,
-  );
+  const traceableCount = knowledgeRecords.filter(
+    (record) => record.sources.length > 0 && record.verification.length > 0,
+  ).length;
+  const traceabilityCoverage = Math.round((traceableCount / knowledgeRecords.length) * 100);
   const linkedRecords = knowledgeRecords.filter((record) => record.relatedIds.length > 0).length;
 
   useEffect(() => {
@@ -266,7 +270,7 @@ export default function KnowledgeVault() {
     const text = [
       `${activeRecord.code} — ${activeRecord.title}`,
       `${knowledgeKindLabels[activeRecord.kind]} · ${knowledgeDomainLabels[activeRecord.domain]}`,
-      `Evidence: ${evidenceLabel[activeRecord.evidence]} · Confidence: ${activeRecord.confidence}%`,
+      `Evidence class: ${evidenceLabel[activeRecord.evidence]} · Updated: ${formatDate(activeRecord.updated)}`,
       '',
       activeRecord.summary,
       '',
@@ -296,6 +300,7 @@ export default function KnowledgeVault() {
     url: 'https://ecaturonald.tech/knowledge-vault',
     description:
       'A searchable engineering knowledge system for diagnostics, procedures, field cases, technical reporting and workshop verification.',
+    dateModified: '2026-07-19',
     about: domainOrder.map((domain) => knowledgeDomainLabels[domain]),
     hasPart: knowledgeRecords.map((record) => ({
       '@type': 'TechArticle',
@@ -329,7 +334,7 @@ export default function KnowledgeVault() {
             transition={{ duration: 0.6 }}
           >
             <div className="kv-topline">
-              <StatusBeacon status="online" label="Vault indexed" />
+              <StatusBeacon status="ready" label="Vault indexed" />
               <span>Schema {knowledgeSchemaVersion} · Evidence-first engineering</span>
             </div>
             <p className="kv-overline">NEXUS / KNOWLEDGE DOMAIN / PHASE 02</p>
@@ -387,13 +392,15 @@ export default function KnowledgeVault() {
         </div>
       </section>
 
+      <ContentDisclosure page="knowledge" />
+
       <section className="kv-section kv-overview" aria-labelledby="kv-overview-title">
         <div className="kv-shell">
           <SectionHeading
             index="01"
             eyebrow="Vault pulse"
-            title="Knowledge that shows its confidence."
-            description="Every record exposes domain, type, evidence level, confidence, revision date, source class and verification criteria."
+            title="Knowledge that shows how it is supported."
+            description="Every record exposes domain, type, evidence class, revision date, source class and verification criteria without invented numerical certainty."
           />
           <div className="kv-metrics" id="kv-overview-title">
             <MetricTile label="Indexed records" value={knowledgeRecords.length} unit="records" detail="Curated procedures, cases, standards and diagnostic guides." tone="cyan" />
@@ -402,7 +409,7 @@ export default function KnowledgeVault() {
             <MetricTile label="Saved locally" value={savedIds.length} unit="items" detail="Private browser bookmarks with no account or tracking requirement." tone="amber" />
           </div>
           <div className="kv-integrity-strip nc-panel">
-            <ProgressRing value={averageConfidence} label="Avg confidence" size={124} tone="cyan" />
+            <ProgressRing value={traceabilityCoverage} label="traceable" size={124} tone="cyan" />
             <div>
               <span>TRUST MODEL</span>
               <h2>Observation is not the same as conclusion.</h2>
@@ -477,7 +484,7 @@ export default function KnowledgeVault() {
                 <span>Sort</span>
                 <select value={sortMode} onChange={(event: ChangeEvent<HTMLSelectElement>) => setSortMode(event.target.value as typeof sortMode)}>
                   <option value="relevance">Relevance</option>
-                  <option value="confidence">Confidence</option>
+                  <option value="evidence">Evidence strength</option>
                   <option value="updated">Recently updated</option>
                   <option value="title">Title A–Z</option>
                 </select>
@@ -518,7 +525,7 @@ export default function KnowledgeVault() {
                           <span>{record.system}</span>
                         </div>
                         <div className="kv-result-foot">
-                          <span>{record.confidence}% confidence</span>
+                          <span>{evidenceLabel[record.evidence]} evidence</span>
                           <span>{record.readMinutes} min read</span>
                           <span>Updated {formatDate(record.updated)}</span>
                         </div>
@@ -594,15 +601,11 @@ export default function KnowledgeVault() {
           <div className="kv-trust-grid">
             {evidenceOrder.map((evidence) => {
               const count = knowledgeRecords.filter((record) => record.evidence === evidence).length;
-              const confidence = count
-                ? knowledgeRecords
-                  .filter((record) => record.evidence === evidence)
-                  .reduce((total, record) => total + record.confidence / count, 0)
-                : 0;
+              const share = Math.round((count / knowledgeRecords.length) * 100);
               return (
                 <CommandPanel key={evidence} eyebrow="EVIDENCE CLASS" title={evidenceLabel[evidence]}>
                   <div className="kv-trust-card">
-                    <ProgressRing value={confidence} label="confidence" size={100} tone={evidence === 'verified' ? 'lime' : evidence === 'field-proven' ? 'cyan' : evidence === 'reference' ? 'blue' : 'amber'} />
+                    <ProgressRing value={share} label="index share" size={100} tone={evidence === 'verified' ? 'lime' : evidence === 'field-proven' ? 'cyan' : evidence === 'reference' ? 'blue' : 'amber'} />
                     <div><strong>{count}</strong><span>records</span><p>{evidence === 'verified' ? 'Validated through direct test or automated verification.' : evidence === 'field-proven' ? 'Supported by documented field observations and outcomes.' : evidence === 'reference' ? 'Built from established engineering principles and practice.' : 'Useful working knowledge awaiting stronger confirmation.'}</p></div>
                   </div>
                 </CommandPanel>
@@ -744,8 +747,11 @@ function KnowledgeReader({
         </div>
       </header>
 
-      <div className="kv-reader-confidence">
-        <ProgressRing value={record.confidence} label="confidence" size={104} tone={domainTone[record.domain]} />
+      <div className="kv-reader-evidence">
+        <div className="kv-reader-evidence-mark">
+          <StatusBeacon status={evidenceStatus[record.evidence]} label={evidenceLabel[record.evidence]} />
+          <small>{record.sources.length} source {record.sources.length === 1 ? 'class' : 'classes'}</small>
+        </div>
         <div>
           <span>SYSTEM</span>
           <strong>{record.system}</strong>

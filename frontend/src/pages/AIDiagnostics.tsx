@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useMemo, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
+import ContentDisclosure from '@/components/ContentDisclosure';
 import Icon from '@/components/ui/Icon';
 import AutomotiveHubNav from '@/components/automotive/AutomotiveHubNav';
 import {
@@ -92,6 +93,10 @@ export default function AIDiagnostics() {
           name: 'Nexus Automotive Diagnostics',
           applicationCategory: 'EngineeringApplication',
           url: 'https://ecaturonald.tech/automotive-systems/diagnostics',
+          dateModified: '2026-07-19',
+          citation: [
+            'https://www.cummins.com/en-na/parts-and-service/digital-products-and-services/insite',
+          ],
         }}
       />
 
@@ -100,7 +105,7 @@ export default function AIDiagnostics() {
         <div className="ad-shell ad-hero-layout">
           <motion.div initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
             <div className="ad-topline">
-              <StatusBeacon status="online" label="Automotive reasoning ready" />
+              <StatusBeacon status="ready" label="Automotive reasoning model ready" />
               <span>Explainable · Evidence labelled · Technician controlled</span>
             </div>
             <p className="ad-overline">NEXUS / AUTOMOTIVE INTELLIGENCE / DIAGNOSTICS</p>
@@ -126,6 +131,8 @@ export default function AIDiagnostics() {
       </section>
 
       <AutomotiveHubNav />
+
+      <ContentDisclosure page="diagnostics" />
 
       <section className="ad-section">
         <div className="ad-shell">

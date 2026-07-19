@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useMemo, useState, type ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
+import ContentDisclosure from '@/components/ContentDisclosure';
 import NexusFooter from '@/components/nexus/NexusFooter';
 import Icon from '@/components/ui/Icon';
 import { siteConfig } from '@/data/portfolio';
@@ -54,7 +55,11 @@ const electricalSystemsSchema = [
       jobTitle: siteConfig.role,
       url: 'https://ecaturonald.tech/about',
     },
-    dateModified: '2026-07-14',
+    dateModified: '2026-07-19',
+    citation: [
+      'https://webstore.iec.ch/en/publication/63699',
+      'https://webstore.iec.ch/en/publication/24656',
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -242,7 +247,7 @@ export default function ElectricalSystems() {
             <div className="es-hero-layout">
               <div className="es-hero-copy">
                 <p className="es-system-line">
-                  <span className="es-live-dot" /> NEXUS POWER DOMAIN · SYSTEM ONLINE
+                  <span className="es-live-dot" /> NEXUS POWER DOMAIN · REFERENCE READY
                 </p>
                 <p className="es-overline">POWER / PROTECTION / CONTROL / EVIDENCE</p>
                 <h1 id="es-hero-title">
@@ -281,7 +286,7 @@ export default function ElectricalSystems() {
               <div className="es-hero-console" aria-label="Illustrative electrical systems command console">
                 <div className="es-console-head">
                   <div><span>ER / NEXUS</span><strong>Electrical command field</strong></div>
-                  <small><i /> live reference model</small>
+                  <small><i /> interactive reference model</small>
                 </div>
                 <SignalScope />
                 <div className="es-console-readings">
@@ -306,6 +311,8 @@ export default function ElectricalSystems() {
             </div>
           </div>
         </section>
+
+        <ContentDisclosure page="electrical" />
 
         <section id="architecture" className="es-section es-architecture" aria-labelledby="architecture-title">
           <div className="nx-shell">

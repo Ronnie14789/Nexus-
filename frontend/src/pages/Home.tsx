@@ -1,4 +1,5 @@
 import AmbientPointer from '@/components/AmbientPointer';
+import ContentDisclosure from '@/components/ContentDisclosure';
 import Contact from '@/components/Contact';
 import NexusFooter from '@/components/nexus/NexusFooter';
 import { NexusGallery } from '@/components/nexus/NexusGallery';
@@ -16,6 +17,7 @@ export default function Home() {
       <AmbientPointer />
       <main id="main-content" className="nx-site">
         <NexusHero />
+        <ContentDisclosure page="home" />
         <NexusProfile />
         <NexusSystems />
         <NexusExperience />

@@ -45,7 +45,6 @@ export interface KnowledgeRecord {
   status: KnowledgeStatus;
   evidence: EvidenceLevel;
   difficulty: Difficulty;
-  confidence: number;
   updated: string;
   readMinutes: number;
   keywords: string[];
@@ -59,7 +58,7 @@ export interface KnowledgeRecord {
   relatedIds: string[];
 }
 
-export const knowledgeSchemaVersion = '1.0.0';
+export const knowledgeSchemaVersion = '1.1.0';
 
 export const knowledgeDomainLabels: Record<KnowledgeDomain, string> = {
   automotive: 'Automotive Systems',
@@ -91,7 +90,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'field-proven',
     difficulty: 'advanced',
-    confidence: 94,
     updated: '2026-07-16',
     readMinutes: 8,
     keywords: ['engine knock', 'crankshaft', 'connecting rod', 'journal', 'bearing seizure', 'heat marks'],
@@ -179,7 +177,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'field-proven',
     difficulty: 'advanced',
-    confidence: 92,
     updated: '2026-07-16',
     readMinutes: 10,
     keywords: ['gearbox', 'high range', 'low range', 'synchro cone', 'shift sleeve', 'planetary gear'],
@@ -260,7 +257,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'field-proven',
     difficulty: 'intermediate',
-    confidence: 95,
     updated: '2026-07-16',
     readMinutes: 5,
     keywords: ['clutch pedal', 'booster leak', 'master cylinder', 'piston return', 'hydraulic'],
@@ -327,7 +323,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'field-proven',
     difficulty: 'advanced',
-    confidence: 91,
     updated: '2026-07-16',
     readMinutes: 9,
     keywords: ['0559', 'rail pressure', 'IMV', 'fuel regulator', 'hard starting', 'low power'],
@@ -408,7 +403,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'field-proven',
     difficulty: 'foundation',
-    confidence: 93,
     updated: '2026-07-16',
     readMinutes: 4,
     keywords: ['priming pump', 'air ingress', 'hard start', 'fuel supply', 'seal'],
@@ -461,7 +455,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'field-proven',
     difficulty: 'intermediate',
-    confidence: 94,
     updated: '2026-07-16',
     readMinutes: 6,
     keywords: ['DDU', 'unloader valve', 'air leak', 'low pressure', 'brakes', 'reservoir'],
@@ -521,7 +514,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'reference',
     difficulty: 'intermediate',
-    confidence: 88,
     updated: '2026-07-16',
     readMinutes: 5,
     keywords: ['lubrication', 'oil pressure', 'bearing', 'debris', 'overhaul', 'inspection'],
@@ -550,7 +542,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'verified',
     difficulty: 'foundation',
-    confidence: 98,
     updated: '2026-07-16',
     readMinutes: 6,
     keywords: ['voltage drop', 'ground', 'starter', 'charging', 'resistance', 'loaded circuit'],
@@ -603,7 +594,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'field-proven',
     difficulty: 'intermediate',
-    confidence: 96,
     updated: '2026-07-16',
     readMinutes: 7,
     keywords: ['alternator', 'battery', 'charging voltage', 'capacity', 'retention', 'overcharge'],
@@ -645,7 +635,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'reference',
     difficulty: 'advanced',
-    confidence: 90,
     updated: '2026-07-16',
     readMinutes: 8,
     keywords: ['5V reference', 'sensor ground', 'ECU', 'signal', 'short circuit', 'shared reference'],
@@ -674,7 +663,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'verified',
     difficulty: 'intermediate',
-    confidence: 99,
     updated: '2026-07-16',
     readMinutes: 7,
     keywords: ['CI/CD', 'quality gate', 'smoke test', 'security headers', 'sitemap', 'deployment'],
@@ -707,7 +695,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'verified',
     difficulty: 'foundation',
-    confidence: 99,
     updated: '2026-07-16',
     readMinutes: 5,
     keywords: ['environment variables', '.env', 'MongoDB URI', 'SMTP', 'secrets', 'GitHub'],
@@ -736,7 +723,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'field-proven',
     difficulty: 'foundation',
-    confidence: 97,
     updated: '2026-07-16',
     readMinutes: 6,
     keywords: ['technical report', 'findings', 'action', 'root cause', 'warranty', 'evidence'],
@@ -776,7 +762,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'reference',
     difficulty: 'foundation',
-    confidence: 92,
     updated: '2026-07-16',
     readMinutes: 4,
     keywords: ['photos', 'warranty', 'evidence', 'damage', 'measurement', 'report'],
@@ -806,7 +791,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'published',
     evidence: 'verified',
     difficulty: 'foundation',
-    confidence: 98,
     updated: '2026-07-16',
     readMinutes: 5,
     keywords: ['verification', 'road test', 'quality control', 'repair', 'workshop', 'close-out'],
@@ -835,7 +819,6 @@ export const knowledgeRecords: KnowledgeRecord[] = [
     status: 'review',
     evidence: 'developing',
     difficulty: 'intermediate',
-    confidence: 76,
     updated: '2026-07-16',
     readMinutes: 6,
     keywords: ['knowledge capture', 'workshop', 'case record', 'taxonomy', 'lessons learned'],
