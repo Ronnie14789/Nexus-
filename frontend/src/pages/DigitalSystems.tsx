@@ -295,7 +295,7 @@ export default function DigitalSystems() {
         title="Digital Systems | Architecture, Data, Cloud, Security & Operations"
         description={description}
         canonicalPath="/digital-systems"
-        image="/images/og-portfolio.jpg"
+        image="/images/nexus-social.png"
         ogType="website"
         jsonLd={digitalSystemsSchema}
       />

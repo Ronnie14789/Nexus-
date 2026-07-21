@@ -14,6 +14,8 @@ The Nexus edition is built around one idea:
 
 The visual system combines a cinematic engineering grid with an editorial presentation of real field evidence.
 
+- Company identity: **Nexus by Ecatu Ronald**.
+- Nexus definition: one core connecting **Power, Motion and Intelligence**.
 - Main identity: **Electrical & Automotive Systems Engineer**.
 - Three connected disciplines: **Power, Motion and Intelligence**.
 - Field route: **Uganda → India → Uganda**.
@@ -24,18 +26,29 @@ The visual system combines a cinematic engineering grid with an editorial presen
 - Purpose-built desktop and mobile compositions.
 - Accessible keyboard navigation, visible focus states, reduced-motion support and dark/light themes.
 
+### Nexus company direction
+
+Nexus is presented as a future systems-company direction growing from Ronald’s professional foundation. The identity uses an orbital core: three connected nodes represent electrical power, automotive motion and digital intelligence. The current website does not claim that Nexus is already incorporated.
+
+The development path is intentionally separated into three stages:
+
+1. **Professional foundation** — experience, evidence, public work and operating standards.
+2. **Product platform** — focused knowledge, diagnostics and workflow products.
+3. **Systems company** — a responsible enterprise providing connected engineering, digital and advisory services.
+
 ## Main public experience
 
-1. **Nexus Hero** — professional positioning, route, diagnostic loop and direct actions.
-2. **Engineering Profile** — professional purpose, operating principles and career direction.
-3. **Systems Atlas** — interactive Power, Motion and Intelligence capability model.
-4. **Field Record** — verified work history across automotive and electrical environments.
-5. **Training & Education** — formal education and Tata Motors SkillPro development.
-6. **Uganda–India–Uganda Journey** — foundation, international expansion and application.
-7. **Engineering Casebook** — projects structured around problem, method and outcome.
-8. **International Gallery** — SkillPro, Cummins and industrial-exposure evidence.
-9. **Leadership Direction** — integrity, management and consultancy ambition.
-10. **First-party Contact System** — secure contact form connected to the included server.
+1. **Nexus Hero** — professional positioning, company mark, route, diagnostic loop and direct actions.
+2. **Nexus Company Seed** — definition, domain architecture and honest development roadmap.
+3. **Engineering Profile** — professional purpose, operating principles and career direction.
+4. **Systems Atlas** — interactive Power, Motion and Intelligence capability model.
+5. **Field Record** — verified work history across automotive and electrical environments.
+6. **Training & Education** — formal education and Tata Motors SkillPro development.
+7. **Uganda–India–Uganda Journey** — foundation, international expansion and application.
+8. **Engineering Casebook** — projects structured around problem, method and outcome.
+9. **International Gallery** — SkillPro, Cummins and industrial-exposure evidence.
+10. **Leadership Direction** — integrity, management and consultancy ambition.
+11. **First-party Contact System** — secure contact form connected to the included server.
 
 ## Public system routes
 

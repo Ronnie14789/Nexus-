@@ -143,7 +143,7 @@ class EmailService {
       : undefined;
 
     const mailOptions: SendMailOptions = {
-      from: `"${process.env.EMAIL_FROM_NAME || 'Ecatu Ronald Portfolio'}" <${process.env.SMTP_USER}>`,
+      from: `"${process.env.EMAIL_FROM_NAME || 'Nexus by Ecatu Ronald'}" <${process.env.SMTP_USER}>`,
       to: Array.isArray(options.to) ? options.to.join(', ') : options.to,
       subject: options.subject,
       html: htmlBody,
@@ -220,7 +220,7 @@ class EmailService {
   }): Promise<EmailResult> {
     return this.sendEmail({
       to: data.email,
-      subject: `Message received · ${data.referenceNumber} · ${data.subject}`,
+      subject: `Nexus message received · ${data.referenceNumber} · ${data.subject}`,
       templateName: 'contact-confirmation',
       templateData: {
         ...data,
@@ -256,7 +256,7 @@ class EmailService {
 
     return this.sendEmail({
       to: adminEmail,
-      subject: `New enquiry · ${data.referenceNumber} · ${data.subject}`,
+      subject: `New Nexus enquiry · ${data.referenceNumber} · ${data.subject}`,
       templateName: 'admin-notification',
       replyTo: data.email,
       templateData: {
@@ -286,7 +286,7 @@ class EmailService {
   }): Promise<EmailResult> {
     return this.sendEmail({
       to: data.email,
-      subject: 'Subscription confirmed · Ecatu Ronald engineering field notes',
+      subject: 'Subscription confirmed · Nexus engineering field notes',
       templateName: 'newsletter-subscription',
       templateData: {
         name: data.name || 'Subscriber',
@@ -306,7 +306,7 @@ class EmailService {
       data.subscribers.map((subscriber) =>
         this.sendEmail({
           to: subscriber.email,
-          subject: `New publication · ${data.post.title}`,
+          subject: `New Nexus publication · ${data.post.title}`,
           templateName: 'blog-notification',
           templateData: {
             name: subscriber.name || 'Reader',

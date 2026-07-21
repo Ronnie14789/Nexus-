@@ -4,8 +4,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { siteConfig } from '@/data/portfolio';
 import { useTheme } from '@/contexts/ThemeContext';
 import Icon from '@/components/ui/Icon';
+import NexusMark from '@/components/brand/NexusMark';
 
 const navLinks = [
+  { href: '#nexus-company', label: 'Nexus', no: '00' },
   { href: '#about', label: 'Profile', no: '01' },
   { href: '#systems', label: 'Systems', no: '02' },
   { href: '#experience', label: 'Field record', no: '03' },
@@ -78,9 +80,9 @@ export default function Header() {
     <header className={`nx-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="nx-progress" style={{ transform: `scaleX(${progress})` }} />
       <nav className="nx-nav" aria-label="Primary navigation">
-        <Link className="nx-brand" to="/" aria-label={`${siteConfig.name} portfolio home`}>
-          <span className="nx-brand-mark" aria-hidden="true">ER</span>
-          <span className="nx-brand-copy"><strong>{siteConfig.name}</strong><small>Systems Engineer · Kampala</small></span>
+        <Link className="nx-brand" to="/" aria-label="Nexus by Ecatu Ronald home">
+          <span className="nx-brand-mark"><NexusMark animated /></span>
+          <span className="nx-brand-copy"><strong>NEXUS</strong><small>by Ecatu Ronald · Systems engineering</small></span>
         </Link>
 
         <ul className="nx-nav-links">
@@ -138,7 +140,7 @@ export default function Header() {
             exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="nx-mobile-menu-head"><span>Portfolio index</span><small>{siteConfig.location}</small></div>
+            <div className="nx-mobile-menu-head"><span>Nexus system index</span><small>{siteConfig.location}</small></div>
             <ul>
               {navLinks.map((link, index) => {
                 const href = location.pathname === '/' ? link.href : `/${link.href}`;
