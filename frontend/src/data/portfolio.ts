@@ -235,9 +235,21 @@ export const projects = [
     approach:
       'Structure every case around complaint verification, diagnostic checks, dismantling findings, probable cause, damage chain, and corrective action.',
     outcome:
-      'More consistent technical communication, better traceability, and clearer repair recommendations for customers and warranty teams.',
+      'Structured records make the complaint, findings, damage chain, recommended action, and close-out easier to audit. No unverified time or cost reduction is claimed.',
     tags: ['Root-cause analysis', 'Warranty process', 'Technical writing', 'Inspection evidence'],
-    status: 'Professional practice',
+    status: 'Field-informed practice',
+    proof: {
+      classification: 'Anonymized professional practice',
+      basis: 'Complaint records, inspection observations, diagnostic readings where supplied, dismantling findings, and corrective-action reports.',
+      reviewed: '21 July 2026',
+      scope: 'Customer identities, registration details, VINs, job numbers, and employer-confidential records are excluded from the public casebook.',
+      artifacts: ['Complaint-to-finding trace', 'Inspection or diagnostic record', 'Cause-and-damage chain', 'Corrective action and close-out'],
+      verification: 'A case is treated as complete only when the reported complaint is addressed and the affected system is checked after repair under an appropriate controlled condition.',
+      gap: 'Next evidence milestone: publish one fully redacted case record with approved photographs and its verification result.',
+    },
+    links: [
+      { label: 'Search automotive case records', href: '/automotive-systems/intelligence', external: false },
+    ],
   },
   {
     number: '02',
@@ -250,9 +262,21 @@ export const projects = [
     approach:
       'Separate the system into focused Python modules for ASR, NLU, dialogue, LLM integration, memory, TTS, skills, and tests.',
     outcome:
-      'A clearer architecture for learning, testing, debugging, and gradually expanding assistant capabilities.',
+      'The modular structure creates clearer boundaries for learning and testing. Production readiness remains unclaimed until end-to-end behaviour is demonstrated.',
     tags: ['Python', 'ASR', 'LLM workflows', 'Modular architecture'],
     status: 'In development',
+    proof: {
+      classification: 'Development record',
+      basis: 'Source architecture, module boundaries, configuration work, dependency checks, and test activity from the active learning project.',
+      reviewed: '21 July 2026',
+      scope: 'Peter is an experimental assistant project. It is not presented as a finished autonomous product or a safety-critical control system.',
+      artifacts: ['Module and package structure', 'Configuration and dependency record', 'Speech and text pipeline design', 'Unit and integration test targets'],
+      verification: 'Each module must pass repeatable tests before its behaviour is treated as dependable; complete assistant capability requires an end-to-end demonstration.',
+      gap: 'Next evidence milestone: publish the active repository, test results, and a short text-and-voice demonstration.',
+    },
+    links: [
+      { label: 'Review public GitHub work', href: 'https://github.com/Ronnie14789', external: true },
+    ],
   },
   {
     number: '03',
@@ -265,9 +289,22 @@ export const projects = [
     approach:
       'Create a custom information architecture, responsive visual system, accessible interactions, Express API, database storage, and email workflow.',
     outcome:
-      'One professional platform that communicates experience, training, technical identity, and future direction without depending on Formspree.',
+      'The platform is publicly reachable and its routes, build, API health, indexing controls, and security headers are checked by the repository quality workflow.',
     tags: ['React', 'TypeScript', 'Express', 'MongoDB', 'Responsive design'],
-    status: 'Production-ready foundation',
+    status: 'Live foundation',
+    proof: {
+      classification: 'Publicly verifiable system',
+      basis: 'Live deployment, public source history, pull-request checks, production build output, and automated route and API smoke tests.',
+      reviewed: '21 July 2026',
+      scope: 'The website is an operational foundation. Database persistence and email delivery still depend on correctly configured production services and credentials.',
+      artifacts: ['Live public routes', 'Git and pull-request history', 'Production build report', 'API and security smoke-test results'],
+      verification: 'A release is accepted only after linting, TypeScript compilation, production builds, canonical-route checks, API health, security headers, robots, and sitemap checks pass.',
+      gap: 'Next evidence milestone: add monitored uptime, accessibility, and performance history from the deployed environment.',
+    },
+    links: [
+      { label: 'Open live platform', href: 'https://ecaturonald.tech', external: true },
+      { label: 'Inspect source history', href: 'https://github.com/Ronnie14789/Nexus-', external: true },
+    ],
   },
   {
     number: '04',
@@ -280,9 +317,21 @@ export const projects = [
     approach:
       'Create clearer templates, structured tables, consistent technical language, and workflows that improve traceability.',
     outcome:
-      'Faster review, better readability, and more professional communication across workshop and administrative tasks.',
+      'The workflow produces more consistent records and clearer review paths. No quantified productivity gain is claimed without a measured baseline.',
     tags: ['Excel', 'Documentation', 'Workflow design', 'Communication'],
     status: 'Ongoing practice',
+    proof: {
+      classification: 'Documented process practice',
+      basis: 'Technical-report formats, spreadsheet structures, case-record templates, and recurring workshop communication workflows.',
+      reviewed: '21 July 2026',
+      scope: 'Public descriptions are anonymized workflow examples, not an employer performance audit or disclosure of customer records.',
+      artifacts: ['Standard report structure', 'Structured inspection fields', 'Parts and action trace', 'Review and handover sequence'],
+      verification: 'A record is ready for review when the complaint, inspection, finding, action, parts, and close-out fields are complete and internally consistent.',
+      gap: 'Next evidence milestone: publish an approved before-and-after sample and measure review time against the earlier workflow.',
+    },
+    links: [
+      { label: 'Open reporting knowledge', href: '/knowledge-vault', external: false },
+    ],
   },
 ] as const;
 

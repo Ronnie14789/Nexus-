@@ -45,7 +45,7 @@ The development path is intentionally separated into three stages:
 5. **Field Record** — verified work history across automotive and electrical environments.
 6. **Training & Education** — formal education and Tata Motors SkillPro development.
 7. **Uganda–India–Uganda Journey** — foundation, international expansion and application.
-8. **Engineering Casebook** — projects structured around problem, method and outcome.
+8. **Evidence-backed Engineering Casebook** — projects structured around problem, method and outcome, with evidence class, review date, scope boundary, verification rule, public links and the next evidence milestone.
 9. **International Gallery** — SkillPro, Cummins and industrial-exposure evidence.
 10. **Leadership Direction** — integrity, management and consultancy ambition.
 11. **First-party Contact System** — secure contact form connected to the included server.
@@ -71,6 +71,8 @@ Every public route includes a visible **Content Trust** disclosure that states:
 - which public, manufacturer or standards references are relevant.
 
 The Knowledge Vault uses named evidence classes—`verified`, `field-proven`, `reference` and `developing`—instead of unsupported numerical confidence scores. Static educational examples are labelled as reference models. Only the Executive Intelligence API and route checks are described as live runtime readings.
+
+The Engineering Casebook follows the same discipline. Publicly verifiable work links to its live system and source history; professional records are explicitly anonymized; work in development is not presented as production-ready; and unmeasured time or cost savings are not claimed.
 
 Current public references include IEC low-voltage installation and verification publications, Cummins INSITE product information, OWASP ASVS, W3C WCAG, the Nexus source repository and Ronald’s linked professional profiles.
 
