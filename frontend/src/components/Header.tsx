@@ -18,12 +18,13 @@ const navLinks = [
 ];
 
 const publicPages = [
-  { to: '/executive-intelligence', label: 'Executive', no: '08' },
-  { to: '/knowledge-vault', label: 'Knowledge', no: '09' },
-  { to: '/electrical-systems', label: 'Electrical', no: '10' },
-  { to: '/automotive-systems', label: 'Automotive', no: '11' },
-  { to: '/digital-systems', label: 'Digital', no: '12' },
-  { to: '/about', label: 'About', no: '13' },
+  { to: '/research-studio', label: 'Research', no: '08' },
+  { to: '/executive-intelligence', label: 'Executive', no: '09' },
+  { to: '/knowledge-vault', label: 'Knowledge', no: '10' },
+  { to: '/electrical-systems', label: 'Electrical', no: '11' },
+  { to: '/automotive-systems', label: 'Automotive', no: '12' },
+  { to: '/digital-systems', label: 'Digital', no: '13' },
+  { to: '/about', label: 'About', no: '14' },
 ];
 
 export default function Header() {

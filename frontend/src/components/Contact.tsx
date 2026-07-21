@@ -93,12 +93,12 @@ export default function Contact() {
       setForm(createInitialForm());
       startedAt.current = Date.now();
       setServerState('online');
-      toast.success(`Message secured. Reference ${nextReceipt.referenceNumber}.`);
+      toast.success(`Message received. Reference ${nextReceipt.referenceNumber}.`);
     } catch (error: unknown) {
       const responseError = error as { response?: { data?: { message?: string } } };
       setApiUnavailable(true);
       setServerState('offline');
-      toast.error(responseError.response?.data?.message ?? 'The server could not receive your message. Please contact me directly.');
+      toast.error(responseError.response?.data?.message ?? 'The form could not receive your message. Please contact me directly.');
     } finally {
       setSubmitting(false);
     }
@@ -123,7 +123,7 @@ export default function Contact() {
     }
   };
 
-  const serverLabel = serverState === 'online' ? 'Server online' : serverState === 'offline' ? 'Direct-contact fallback' : 'Checking server';
+  const formStatus = serverState === 'online' ? 'Ready for your message' : serverState === 'offline' ? 'Direct contact available' : 'Message form';
 
   return (
     <section id="contact" className="vg-section vg-contact" aria-labelledby="contact-title">
@@ -157,11 +157,6 @@ export default function Contact() {
               </div>
               <button type="button" className="vg-copy-email" onClick={copyEmail}><Icon name="copy" /> Copy email address</button>
             </div>
-
-            <div className={`vg-infrastructure is-${serverState}`}>
-              <div className="vg-infrastructure-signal"><i /><i /><i /></div>
-              <div><small>FIRST-PARTY CONTACT INFRASTRUCTURE</small><strong>{serverLabel}</strong><p>Validation, spam protection, message storage and tracked email delivery—without Formspree.</p></div>
-            </div>
           </motion.aside>
 
           <motion.form
@@ -174,17 +169,17 @@ export default function Contact() {
             transition={{ duration: 0.68, delay: 0.07 }}
           >
             <div className="vg-form-head">
-              <div><small>SECURE MESSAGE CHANNEL</small><h3>Tell me what you are working on.</h3></div>
-              <span className={`vg-form-status is-${serverState}`}><i /> {serverLabel}</span>
+              <div><small>PROFESSIONAL ENQUIRY</small><h3>Tell me what you are working on.</h3></div>
+              <span className={`vg-form-status is-${serverState}`}><i /> {formStatus}</span>
             </div>
 
             {receipt ? (
               <div className="vg-form-receipt" role="status" aria-live="polite">
                 <div className="vg-form-receipt-mark"><Icon name="check" /></div>
                 <div className="vg-form-receipt-copy">
-                  <small>MESSAGE SECURED</small>
+                  <small>MESSAGE RECEIVED</small>
                   <strong>{receipt.referenceNumber}</strong>
-                  <p>Your enquiry is stored in the Nexus communications system. Email delivery is being processed and tracked separately.</p>
+                  <p>Your enquiry has been received. Keep this reference if you need to follow up about the message.</p>
                 </div>
                 <button type="button" onClick={copyReference} aria-label="Copy message reference"><Icon name="copy" /></button>
               </div>
@@ -206,10 +201,10 @@ export default function Contact() {
             <label className="vg-consent"><input type="checkbox" name="consent" checked={form.consent} onChange={handleChange} /><span>I agree that my details may be used to respond to this enquiry.</span></label>
             {errors.consent ? <small className="field-error vg-consent-error">{errors.consent}</small> : null}
 
-            <button className="vg-button vg-button-primary vg-form-submit" type="submit" disabled={submitting}>{submitting ? 'Sending securely…' : 'Send secure message'}{!submitting ? <Icon name="arrow" /> : null}</button>
+            <button className="vg-button vg-button-primary vg-form-submit" type="submit" disabled={submitting}>{submitting ? 'Sending message…' : 'Send message'}{!submitting ? <Icon name="arrow" /> : null}</button>
 
-            <div className="vg-form-bottom"><p>Your message is used only to respond to your enquiry.</p><span>OWN SERVER · SPAM PROTECTED · PRIVATE</span></div>
-            {apiUnavailable ? <div className="vg-form-fallback" role="status">The server is temporarily unavailable. Contact me directly at <a href={siteConfig.emailHref}>{siteConfig.email}</a> or through WhatsApp.</div> : null}
+            <div className="vg-form-bottom"><p>Your message is used only to respond to your enquiry.</p><span>PRIVATE · DIRECT · PROFESSIONAL</span></div>
+            {apiUnavailable ? <div className="vg-form-fallback" role="status">The message form is temporarily unavailable. Contact me directly at <a href={siteConfig.emailHref}>{siteConfig.email}</a> or through WhatsApp.</div> : null}
           </motion.form>
         </div>
 

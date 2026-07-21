@@ -1,6 +1,6 @@
 # Nexus Field Systems Edition — Build and Verification Report
 
-Final verification was completed on 21 July 2026 after the Nexus company-identity integration, evidence-first content upgrade, responsive disclosure integration and first-party server checks.
+Final verification was completed on 21 July 2026 after the Nexus Research Studio, research-assistant service, safe project library, contact-interface cleanup and evidence-first content integration.
 
 ## Passed source checks
 
@@ -11,6 +11,7 @@ Final verification was completed on 21 July 2026 after the Nexus company-identit
 - Root `npm run verify` workflow.
 - Evidence disclosure TypeScript integration across all public routes.
 - Reusable Nexus orbital mark and company-identity TypeScript integration.
+- Research Studio data, drawing, interface and API TypeScript integration.
 
 ## Passed runtime checks
 
@@ -21,8 +22,9 @@ Final verification was completed on 21 July 2026 after the Nexus company-identit
 - Invalid contact validation behaviour retained.
 - Local JSON contact persistence verified.
 - Test contact record removed after verification.
-- All nine canonical public routes returned HTTP 200.
+- All ten canonical public routes returned HTTP 200.
 - Sitemap, robots controls and required security headers passed the production smoke test.
+- The research endpoint returned complete audience-adapted curated answers with four source links when no external AI credentials were available.
 
 ## Runtime identity
 
@@ -43,12 +45,34 @@ Final verification was completed on 21 July 2026 after the Nexus company-identit
 ## Latest frontend output
 
 - Vite version: `8.1.1`.
-- Modules transformed: `977`.
+- Modules transformed: `981`.
 - Shared production CSS: `280.43 kB` before gzip and `55.41 kB` gzip.
 - Content Disclosure CSS: `4.92 kB` before gzip and `1.55 kB` gzip.
 - Main public Home chunk: `47.28 kB` before gzip and `11.44 kB` gzip.
-- Shared Content Disclosure chunk: `9.71 kB` before gzip and `3.24 kB` gzip.
+- Research Studio CSS: `30.01 kB` before gzip and `6.57 kB` gzip.
+- Research Studio JavaScript: `45.44 kB` before gzip and `13.78 kB` gzip.
+- Shared Content Disclosure chunk: `10.92 kB` before gzip and `3.68 kB` gzip.
 - Production build completed successfully.
+
+## Research Studio verification
+
+- Student, teacher, researcher and practitioner audience profiles are available from the learning interface and assistant controls.
+- Electrical, automotive and digital learning paths each progress through foundations, architecture, diagnosis and research.
+- Twelve searchable concept maps expose level, vocabulary and authority links.
+- Six DIY projects include objectives, materials, methods, simplified SVG drawings, data-recording fields, reflection questions and source links.
+- Physical activities are restricted to isolated 3–5 V models and de-energized training boards; other projects use paper models or browser software.
+- The API blocks step-by-step requests involving mains electricity, high-voltage vehicles, airbags, high-pressure fuel, real brakes and work beneath vehicles.
+- Assistant responses expose one of four provenance states: live web sources, model-only, curated Nexus library or safety boundary.
+- Missing credentials and provider failures degrade to the curated local library instead of inventing web access or citations.
+- The production API smoke test verified a local-mode answer and its source collection.
+- `OPENAI_API_KEY` remains server-only and no research conversation is stored by the Nexus API.
+
+## Contact-interface cleanup
+
+- The public infrastructure/status card was removed from the contact section.
+- Server-oriented phrases such as “server online,” “first-party contact infrastructure” and “own server” are no longer visible to visitors.
+- Visitors see a concise form-readiness state, direct-contact fallback and a plain-language message receipt.
+- Existing validation, spam controls, persistence, delivery handling and operational checks remain unchanged behind the interface.
 
 ## Evidence-first content verification
 

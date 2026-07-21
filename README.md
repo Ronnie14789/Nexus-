@@ -48,7 +48,8 @@ The development path is intentionally separated into three stages:
 8. **Evidence-backed Engineering Casebook** — projects structured around problem, method and outcome, with evidence class, review date, scope boundary, verification rule, public links and the next evidence milestone.
 9. **International Gallery** — SkillPro, Cummins and industrial-exposure evidence.
 10. **Leadership Direction** — integrity, management and consultancy ambition.
-11. **First-party Contact System** — secure contact form connected to the included server.
+11. **Professional Contact** — a clear enquiry form with direct email, phone and WhatsApp alternatives.
+12. **Nexus Research Studio** — audience-aware learning paths, safe DIY laboratories, technical drawings, a concept atlas, authority links and research assistance.
 
 ## Public system routes
 
@@ -60,6 +61,25 @@ The development path is intentionally separated into three stages:
 - `/digital-systems` — software architecture, data, security, delivery and operations references.
 - `/executive-intelligence` — real API and route checks separated from strategic planning models.
 - `/knowledge-vault` — searchable cross-domain procedures, field cases and evidence classes.
+- `/research-studio` — structured learning, safe educational projects, code-native diagrams, source trails and a multi-mode research assistant.
+
+## Nexus Research Studio
+
+The Research Studio is the learning layer for **Power, Motion and Intelligence**. It is designed for four audiences—students, teachers, researchers and practitioners—and changes the explanation style without changing the underlying engineering facts.
+
+The first release includes:
+
+- three four-stage learning paths from foundations through research;
+- twelve searchable concept maps across electrical, automotive and digital systems;
+- six guided projects with objectives, materials, methods, diagrams, recording fields, reflection questions and authority links;
+- safe activity boundaries: isolated 3–5 V circuits, de-energized training boards, paper models, simulations and browser software only;
+- an assistant with explain, research, project and compare modes;
+- visible answer provenance: live web, model-only, curated local library or safety-boundary response;
+- curated fallback answers when the external AI service is not configured or temporarily unavailable.
+
+The assistant uses the server-side `POST /api/research/ask` route. Add `OPENAI_API_KEY` to `backend/.env` to enable model answers and current web research. The key must remain server-side; never put it in a `VITE_` variable or commit it. Without a key, the assistant remains useful but answers only from the smaller curated Nexus knowledge index.
+
+The assistant is a research aid, not an automatic authority. Users are told to inspect citations and confirm exact standards, manufacturer procedures, operating conditions and local rules. Safety-critical and high-energy DIY requests receive principles and safe classroom alternatives instead of step-by-step work.
 
 ## Content trust model
 
@@ -75,6 +95,8 @@ The Knowledge Vault uses named evidence classes—`verified`, `field-proven`, `r
 The Engineering Casebook follows the same discipline. Publicly verifiable work links to its live system and source history; professional records are explicitly anonymized; work in development is not presented as production-ready; and unmeasured time or cost savings are not claimed.
 
 Current public references include IEC low-voltage installation and verification publications, Cummins INSITE product information, OWASP ASVS, W3C WCAG, the Nexus source repository and Ronald’s linked professional profiles.
+
+The Research Studio extends this source set with PhET interactive circuit learning, NHTSA vehicle-safety information and MDN web-platform learning material. External sources remain linked and attributed rather than copied into the site.
 
 ## First-party contact server
 

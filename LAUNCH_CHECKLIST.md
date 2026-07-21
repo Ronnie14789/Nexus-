@@ -56,3 +56,10 @@
 - [x] Frontend and backend package audits with no known vulnerabilities at the time of packaging.
 - [x] Evidence-first content model and public-route disclosure integration.
 - [x] Current public-route sitemap verification.
+- [x] Research Studio TypeScript integration, responsive layout and canonical route verification.
+- [x] Curated research fallback response verified without external AI credentials.
+- [x] Safe DIY boundaries limited to isolated low-voltage, paper-model, simulation and browser projects.
+- [ ] Add `OPENAI_API_KEY` as a protected production server secret to enable model and web research.
+- [ ] Set a unique `IP_HASH_SALT` before enabling the production research assistant.
+- [ ] Run live assistant tests for student, teacher, researcher and practitioner modes after the key is configured.
+- [ ] Review web-source quality, response cost and rate limits after the first month of real usage.

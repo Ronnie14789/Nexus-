@@ -16,6 +16,7 @@ const AutomotiveSystems = lazy(() => import('@/pages/AutomotiveSystems'));
 const DigitalSystems = lazy(() => import('@/pages/DigitalSystems'));
 const ExecutiveIntelligence = lazy(() => import('@/pages/ExecutiveIntelligence'));
 const KnowledgeVault = lazy(() => import('@/pages/KnowledgeVault'));
+const ResearchStudio = lazy(() => import('@/pages/ResearchStudio'));
 const AIDiagnostics = lazy(() => import('@/pages/AIDiagnostics'));
 const AutomotiveIntelligence = lazy(() => import('@/pages/AutomotiveIntelligence'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
@@ -76,6 +77,7 @@ export default function App() {
             <Route path="/digital-systems" element={<DigitalSystems />} />
             <Route path="/executive-intelligence" element={<ExecutiveIntelligence />} />
             <Route path="/knowledge-vault" element={<KnowledgeVault />} />
+            <Route path="/research-studio" element={<ResearchStudio />} />
             <Route path="/ai-diagnostics" element={<Navigate to="/automotive-systems/diagnostics" replace />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminLayout />}>
