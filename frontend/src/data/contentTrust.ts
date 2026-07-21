@@ -6,6 +6,7 @@ export type PublicContentPage =
   | 'digital'
   | 'executive'
   | 'knowledge'
+  | 'research'
   | 'diagnostics'
   | 'automotive-intelligence';
 
@@ -195,6 +196,34 @@ export const contentTrustProfiles: Record<PublicContentPage, ContentTrustProfile
         label: 'Nexus production verification source',
         authority: 'GitHub / Ronnie14789',
         href: 'https://github.com/Ronnie14789/Nexus-',
+      },
+    ],
+  },
+  research: {
+    title: 'Learning guidance with visible sources and safety limits.',
+    summary:
+      'The Research Studio combines a curated concept library, safe educational projects, simplified diagrams and an optional web-research assistant across electrical, automotive and digital systems.',
+    evidenceBasis:
+      'Established engineering principles and authority links from IEC, PhET, Cummins, NHTSA, MDN, OWASP and W3C, supported by an explicitly labelled response source mode.',
+    scopeBoundary:
+      'It is a learning and research starting point—not a universal textbook, certified course, repair manual or substitute for competent supervision. Exact standards, manufacturer procedures and local rules remain decisive.',
+    reviewed: '21 July 2026',
+    reviewLabel: 'Learning, source and safety review',
+    references: [
+      {
+        label: 'Circuit Construction Kit: DC',
+        authority: 'PhET / University of Colorado Boulder',
+        href: 'https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_en.html',
+      },
+      {
+        label: 'Learn web development',
+        authority: 'MDN Web Docs',
+        href: 'https://developer.mozilla.org/en-US/docs/Learn_web_development',
+      },
+      {
+        label: 'Vehicle safety information',
+        authority: 'NHTSA',
+        href: 'https://www.nhtsa.gov/vehicle-safety',
       },
     ],
   },

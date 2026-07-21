@@ -32,6 +32,8 @@ export default function NexusFooter() {
             <a href="/#experience">Field record</a>
             <a href="/#journey">Journey</a>
             <a href="/#work">Casebook</a>
+            <a href="/research-studio">Research Studio</a>
+            <a href="/knowledge-vault">Knowledge Vault</a>
           </div>
           <div>
             <span>Connect</span>

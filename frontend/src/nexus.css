@@ -427,7 +427,7 @@ body { background: var(--nx-paper); color: var(--nx-ink); font-family: var(--nx-
 .nx-ten-year small { color: #7b94a8; font: .43rem var(--nx-mono); letter-spacing: .08em; }
 .nx-ten-year i { height: 1px; background: var(--nx-line-dark); }
 
-/* Contact — first-party server =========================================== */
+/* Contact system ========================================================== */
 .nx-site .vg-contact { position: relative; padding: 150px 0; color: #eef8ff; background: radial-gradient(circle at 10% 20%, rgba(40,104,255,.28), transparent 30%), linear-gradient(145deg, #02050a, #061321 68%, #071a29); }
 .nx-site .vg-contact-grid { position: absolute; inset: 0; opacity: .13; background-image: linear-gradient(rgba(174,215,246,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(174,215,246,.12) 1px, transparent 1px); background-size: 76px 76px; }
 .nx-site .vg-contact-glow { position: absolute; right: -180px; bottom: -180px; width: 620px; height: 620px; border-radius: 50%; background: rgba(40,104,255,.18); filter: blur(130px); }

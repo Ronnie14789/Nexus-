@@ -81,6 +81,15 @@ export default function NexusSystems() {
           </div>
           <Icon name="arrow" />
         </Link>
+        <Link className="nx-executive-gateway" to="/research-studio">
+          <span>NX / 03</span>
+          <div>
+            <small>RESEARCH LAYER</small>
+            <strong>Nexus Research Studio</strong>
+            <p>Learn across all three fields through concept maps, safe guided projects, technical drawings, authority links and research assistance.</p>
+          </div>
+          <Icon name="arrow" />
+        </Link>
 
         <div className="nx-atlas">
           <div className="nx-atlas-nav" role="tablist" aria-label="Engineering systems">

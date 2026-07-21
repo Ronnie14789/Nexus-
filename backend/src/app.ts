@@ -21,6 +21,7 @@ import authRoutes from './routes/auth';
 import adminRoutes from './routes/admin';
 import analyticsRoutes from './routes/analytics';
 import healthRoutes from './routes/health';
+import researchRoutes from './routes/research';
 
 const createApp = (): Application => {
   const app = express();
@@ -94,6 +95,7 @@ const createApp = (): Application => {
   app.use('/api/testimonials', testimonialRoutes);
   app.use('/api/upload', uploadRoutes);
   app.use('/api/analytics', analyticsRoutes);
+  app.use('/api/research', researchRoutes);
 
   const staticFrontendDir = process.env.STATIC_FRONTEND_DIR;
   if (staticFrontendDir && fs.existsSync(staticFrontendDir)) {
