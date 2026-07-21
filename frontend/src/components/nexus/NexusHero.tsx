@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Icon from '@/components/ui/Icon';
+import NexusMark from '@/components/brand/NexusMark';
 import { siteConfig } from '@/data/portfolio';
 
 function KampalaClock() {
@@ -37,7 +38,7 @@ export default function NexusHero() {
       <div className="nx-hero-noise" aria-hidden="true" />
       <div className="nx-hero-orbit nx-hero-orbit-a" aria-hidden="true" />
       <div className="nx-hero-orbit nx-hero-orbit-b" aria-hidden="true" />
-      <div className="nx-hero-wordmark" aria-hidden="true">ECATU</div>
+      <div className="nx-hero-wordmark" aria-hidden="true">NEXUS</div>
 
       <div className="nx-shell nx-hero-layout">
         <motion.div
@@ -51,7 +52,7 @@ export default function NexusHero() {
             <span>Kampala, Uganda · <KampalaClock /></span>
           </div>
 
-          <p className="nx-overline">ELECTRICAL &amp; AUTOMOTIVE SYSTEMS ENGINEER</p>
+          <p className="nx-overline">NEXUS / POWER · MOTION · INTELLIGENCE</p>
           <h1 id="nx-hero-title">
             <span>Evidence</span>
             <span>becomes</span>
@@ -91,7 +92,10 @@ export default function NexusHero() {
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 1.08, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="nx-portrait-index" aria-hidden="true">01 / 09</div>
+          <div className="nx-hero-company-mark">
+            <NexusMark animated />
+            <div><small>FUTURE SYSTEMS COMPANY</small><strong>NEXUS</strong></div>
+          </div>
           <div className="nx-portrait-frame">
             <picture>
               <source media="(max-width: 720px)" srcSet="/images/ecatu-hero-760.webp" />

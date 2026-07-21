@@ -222,7 +222,7 @@ export default function ElectricalSystems() {
         title="Electrical Systems | Power, Protection, Control & Diagnostics"
         description={description}
         canonicalPath="/electrical-systems"
-        image="/images/og-portfolio.jpg"
+        image="/images/nexus-social.png"
         ogType="website"
         jsonLd={electricalSystemsSchema}
       />

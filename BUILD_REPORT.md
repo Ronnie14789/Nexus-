@@ -1,6 +1,6 @@
 # Nexus Field Systems Edition — Build and Verification Report
 
-Final verification was completed on 19 July 2026 after the evidence-first content upgrade, responsive disclosure integration and first-party server checks.
+Final verification was completed on 21 July 2026 after the Nexus company-identity integration, evidence-first content upgrade, responsive disclosure integration and first-party server checks.
 
 ## Passed source checks
 
@@ -10,6 +10,7 @@ Final verification was completed on 19 July 2026 after the evidence-first conten
 - Frontend Vite production build.
 - Root `npm run verify` workflow.
 - Evidence disclosure TypeScript integration across all public routes.
+- Reusable Nexus orbital mark and company-identity TypeScript integration.
 
 ## Passed runtime checks
 
@@ -42,10 +43,10 @@ Final verification was completed on 19 July 2026 after the evidence-first conten
 ## Latest frontend output
 
 - Vite version: `8.1.1`.
-- Modules transformed: `974`.
-- Shared production CSS: `267.86 kB` before gzip and `52.69 kB` gzip.
+- Modules transformed: `977`.
+- Shared production CSS: `277.70 kB` before gzip and `54.92 kB` gzip.
 - Content Disclosure CSS: `4.92 kB` before gzip and `1.55 kB` gzip.
-- Main public Home chunk: `40.28 kB` before gzip and `9.83 kB` gzip.
+- Main public Home chunk: `44.91 kB` before gzip and `10.85 kB` gzip.
 - Shared Content Disclosure chunk: `9.71 kB` before gzip and `3.24 kB` gzip.
 - Production build completed successfully.
 
@@ -57,6 +58,14 @@ Final verification was completed on 19 July 2026 after the evidence-first conten
 - Knowledge Vault numerical confidence percentages were removed and replaced with named evidence classes and traceability coverage.
 - Automotive Service Intelligence exposes its evidence-policy version, library review date and record owner.
 - IEC, Cummins, OWASP and W3C references are linked from the applicable public routes.
+
+## Nexus identity verification
+
+- Header, hero, homepage company section, footer, favicon, social-preview image and web-app manifest share the Nexus identity.
+- The orbital mark represents Power, Motion and Intelligence around one connected core.
+- Motion respects the user’s reduced-motion preference.
+- The company roadmap distinguishes the current professional foundation from future products and incorporation.
+- Email sender identity and transactional subjects use Nexus by Ecatu Ronald consistently.
 
 ## Packaging and registry checks
 

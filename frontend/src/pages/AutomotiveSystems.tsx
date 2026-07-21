@@ -290,7 +290,7 @@ export default function AutomotiveSystems() {
         title="Automotive Systems | Powertrain, Chassis, Control & Diagnostics"
         description={description}
         canonicalPath="/automotive-systems"
-        image="/images/og-portfolio.jpg"
+        image="/images/nexus-social.png"
         ogType="website"
         jsonLd={automotiveSystemsSchema}
       />

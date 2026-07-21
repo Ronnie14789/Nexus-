@@ -53,7 +53,7 @@ export default function Seo({
   title,
   description,
   canonicalPath,
-  image = '/images/og-portfolio.jpg',
+  image = '/images/nexus-social.png',
   jsonLd,
   ogType = 'profile',
 }: SeoProps) {
@@ -100,7 +100,7 @@ export default function Seo({
       upsertMeta('property', 'og:title', HOME_TITLE);
       upsertMeta('property', 'og:description', HOME_DESCRIPTION);
       upsertMeta('property', 'og:url', `${SITE_URL}/`);
-      upsertMeta('property', 'og:image', `${SITE_URL}/images/og-portfolio.jpg`);
+      upsertMeta('property', 'og:image', `${SITE_URL}/images/nexus-social.png`);
 
       setCanonical(`${SITE_URL}/`);
     };

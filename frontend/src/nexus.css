@@ -51,7 +51,7 @@ body { background: var(--nx-paper); color: var(--nx-ink); font-family: var(--nx-
 .nx-nav { width: min(1700px, 100%); min-height: 72px; margin-inline: auto; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 26px; padding: 8px 10px 8px 12px; border: 1px solid rgba(255,255,255,.13); border-radius: 18px; color: #f7fbff; background: rgba(4,9,15,.68); box-shadow: 0 22px 70px rgba(0,0,0,.17); backdrop-filter: blur(28px) saturate(150%); transition: background .28s ease, border-color .28s ease, box-shadow .28s ease; }
 .nx-header.is-scrolled .nx-nav { background: rgba(4,9,15,.94); border-color: rgba(255,255,255,.16); box-shadow: 0 24px 76px rgba(0,0,0,.3); }
 .nx-brand { display: flex; align-items: center; gap: 13px; min-width: 214px; color: inherit; text-decoration: none; }
-.nx-brand-mark { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(107,230,255,.36); border-radius: 13px; color: #fff; background: linear-gradient(145deg, rgba(40,104,255,.42), rgba(107,230,255,.08)); font: 700 .75rem/1 var(--nx-mono); letter-spacing: .08em; box-shadow: inset 0 0 24px rgba(107,230,255,.06); }
+.nx-brand-mark { display: grid; place-items: center; width: 48px; height: 48px; }
 .nx-brand-copy { display: grid; gap: 4px; }
 .nx-brand-copy strong { font-size: .78rem; letter-spacing: -.01em; }
 .nx-brand-copy small { color: #7f98ad; font: .47rem/1 var(--nx-mono); letter-spacing: .07em; text-transform: uppercase; }
@@ -119,7 +119,6 @@ body { background: var(--nx-paper); color: var(--nx-ink); font-family: var(--nx-
 .nx-hero-disciplines small { display: block; margin-bottom: 6px; color: #607b92; font: .42rem var(--nx-mono); letter-spacing: .1em; }
 .nx-hero-disciplines strong { font-size: .68rem; line-height: 1.4; }
 .nx-hero-portrait { position: relative; min-height: 690px; }
-.nx-portrait-index { position: absolute; z-index: 5; top: -15px; right: 3px; color: rgba(255,255,255,.58); font: .5rem var(--nx-mono); letter-spacing: .1em; }
 .nx-portrait-frame { position: absolute; inset: 0 8% 8% 10%; overflow: hidden; border: 1px solid rgba(255,255,255,.15); border-radius: 230px 230px 34px 34px; background: #0b1723; box-shadow: 0 60px 150px rgba(0,0,0,.48); }
 .nx-portrait-frame::before { content: ""; position: absolute; z-index: 3; inset: 14px; border: 1px solid rgba(255,255,255,.19); border-radius: 214px 214px 23px 23px; pointer-events: none; }
 .nx-portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 52% center; transform: scale(1.04); }

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#02060b"/>
+      <stop offset=".55" stop-color="#071523"/>
+      <stop offset="1" stop-color="#092239"/>
+    </linearGradient>
+    <radialGradient id="core" cx="35%" cy="28%" r="78%">
+      <stop stop-color="#93f4ff"/>
+      <stop offset=".42" stop-color="#2b87ff"/>
+      <stop offset="1" stop-color="#123a92"/>
+    </radialGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#8dc6eb" stroke-opacity=".08"/>
+    </pattern>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="914" cy="315" r="248" fill="#2868ff" fill-opacity=".055" stroke="#86dfff" stroke-opacity=".12"/>
+  <circle cx="914" cy="315" r="185" fill="none" stroke="#86dfff" stroke-opacity=".1" stroke-dasharray="5 12"/>
+
+  <g transform="translate(914 315)" fill="none" stroke-width="3">
+    <ellipse rx="168" ry="61" stroke="#6be6ff" transform="rotate(-12)"/>
+    <ellipse rx="168" ry="61" stroke="#ffb45f" transform="rotate(48)"/>
+    <ellipse rx="168" ry="61" stroke="#ad7cff" transform="rotate(108)"/>
+  </g>
+  <circle cx="1078" cy="280" r="12" fill="#6be6ff" filter="url(#glow)"/>
+  <circle cx="829" cy="460" r="12" fill="#ffb45f" filter="url(#glow)"/>
+  <circle cx="1016" cy="451" r="12" fill="#ad7cff" filter="url(#glow)"/>
+  <circle cx="914" cy="315" r="69" fill="#2868ff" fill-opacity=".18" stroke="#93f4ff" stroke-opacity=".4"/>
+  <circle cx="914" cy="315" r="53" fill="url(#core)" filter="url(#glow)"/>
+  <path d="M876 352v-76h20l34 45v-45h20v76h-19l-35-47v47h-20Z" fill="#fff"/>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="78" y="105" fill="#6be6ff" font-size="18" font-weight="700" letter-spacing="4">SYSTEMS ENGINEERING / KAMPALA</text>
+    <text x="72" y="292" fill="#f5fbff" font-size="126" font-weight="700" letter-spacing="8">NEXUS</text>
+    <text x="78" y="355" fill="#9db2c4" font-size="28" font-weight="400">Power · Motion · Intelligence</text>
+    <line x1="78" y1="404" x2="587" y2="404" stroke="#8dc6eb" stroke-opacity=".24"/>
+    <text x="78" y="459" fill="#eef8ff" font-size="24" font-weight="700">A future systems company direction</text>
+    <text x="78" y="496" fill="#8199ad" font-size="20">built from the professional foundation of Ecatu Ronald.</text>
+    <text x="78" y="567" fill="#6be6ff" font-size="18" font-weight="700" letter-spacing="2">ECATURONALD.TECH</text>
+  </g>
+</svg>

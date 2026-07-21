@@ -1,4 +1,5 @@
 import Icon from '@/components/ui/Icon';
+import NexusMark from '@/components/brand/NexusMark';
 import { siteConfig } from '@/data/portfolio';
 
 export default function NexusFooter() {
@@ -13,19 +14,24 @@ export default function NexusFooter() {
 
       <div className="nx-shell nx-footer-main">
         <div className="nx-footer-statement">
-          <small>ECATU RONALD / ENGINEERING PORTFOLIO</small>
-          <h2>Building a career<br />worthy of trust.</h2>
-          <a href="#hero">Return to the beginning <Icon name="arrow" /></a>
+          <div className="nx-footer-brand-lockup">
+            <NexusMark />
+            <div><strong>NEXUS</strong><span>Power · Motion · Intelligence<br />by Ecatu Ronald</span></div>
+          </div>
+          <small>FUTURE SYSTEMS COMPANY / PROFESSIONAL FOUNDATION</small>
+          <h2>Connecting systems.<br />Building trust.</h2>
+          <a href="/#hero">Return to the beginning <Icon name="arrow" /></a>
         </div>
 
         <div className="nx-footer-columns">
           <div>
             <span>Explore</span>
-            <a href="#about">Profile</a>
-            <a href="#systems">Systems</a>
-            <a href="#experience">Field record</a>
-            <a href="#journey">Journey</a>
-            <a href="#work">Casebook</a>
+            <a href="/#about">Profile</a>
+            <a href="/#nexus-company">Nexus company</a>
+            <a href="/#systems">Systems</a>
+            <a href="/#experience">Field record</a>
+            <a href="/#journey">Journey</a>
+            <a href="/#work">Casebook</a>
           </div>
           <div>
             <span>Connect</span>
@@ -42,8 +48,8 @@ export default function NexusFooter() {
       </div>
 
       <div className="nx-shell nx-footer-bottom">
-        <p>© {year} {siteConfig.name}. Personal professional portfolio.</p>
-        <p>Clarity · accessibility · performance · integrity</p>
+        <p>© {year} {siteConfig.name}. Nexus is presented here as a future company direction.</p>
+        <p>Power · motion · intelligence · integrity</p>
       </div>
     </footer>
   );

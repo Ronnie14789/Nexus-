@@ -1,6 +1,7 @@
 import AmbientPointer from '@/components/AmbientPointer';
 import ContentDisclosure from '@/components/ContentDisclosure';
 import Contact from '@/components/Contact';
+import NexusCompany from '@/components/nexus/NexusCompany';
 import NexusFooter from '@/components/nexus/NexusFooter';
 import { NexusGallery } from '@/components/nexus/NexusGallery';
 import NexusHero from '@/components/nexus/NexusHero';
@@ -18,6 +19,7 @@ export default function Home() {
       <main id="main-content" className="nx-site">
         <NexusHero />
         <ContentDisclosure page="home" />
+        <NexusCompany />
         <NexusProfile />
         <NexusSystems />
         <NexusExperience />
