@@ -27,7 +27,7 @@
     "quality:gate": "npm run verify && node scripts/prepare-deploy.mjs && npm run test:smoke"
   },
   "devDependencies": {
-    "concurrently": "^10.0.4",
+    "concurrently": "^10.0.6",
     "typescript": "^6.0.3"
   }
 }
